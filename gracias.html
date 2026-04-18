@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias - Lindo Hogar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <h1 class="header-title">Lindo Hogar</h1>
+            <div class="header-actions">
+                <a class="header-link" href="index.html">← Volver a la tienda</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="mx-auto" style="max-width: 560px; text-align: center;">
+            <h2 class="mb-3" id="titulo-gracias">¡Gracias por tu compra!</h2>
+            <p class="text-muted mb-4" id="mensaje-estado">
+                Si completaste el pago en Mercado Pago, tu pedido quedó registrado. Te contactaremos si hace falta.
+            </p>
+            <a href="index.html" class="btn btn-primary">Seguir comprando</a>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var collectionStatus = params.get("collection_status");
+            var status = params.get("status");
+            var titulo = document.getElementById("titulo-gracias");
+            var mensaje = document.getElementById("mensaje-estado");
+
+            if (collectionStatus === "approved" || status === "approved") {
+                try {
+                    localStorage.removeItem("carritoGuardado");
+                } catch (e) {}
+                if (titulo) titulo.textContent = "¡Pago recibido!";
+                if (mensaje) mensaje.textContent = "Gracias. Tu carrito se vació. Si necesitás algo más, volvé a la tienda.";
+            } else if (collectionStatus === "pending" || status === "pending") {
+                if (titulo) titulo.textContent = "Pago pendiente";
+                if (mensaje) mensaje.textContent = "Tu pago está pendiente de confirmación. Podés volver más tarde o revisar tu cuenta de Mercado Pago.";
+            } else if (!collectionStatus && !status) {
+                if (mensaje) mensaje.textContent = "Gracias por visitarnos.";
+            }
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

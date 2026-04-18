@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Inventario - Lindo Hogar</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .header-admin { background: #333; color: white; padding: 15px; text-align: center; }
+        .header-admin a { color: white; text-decoration: none; margin: 0 10px; font-size: 14px; }
+
+        .form-container { width: 95%; margin: 10px auto; background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        
+        /* Tabla base */
+        .admin-table { width: 95%; margin: 10px auto; border-collapse: collapse; background: white; }
+        .admin-table th, .admin-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .admin-table thead { background: #34495e; color: white; }
+
+        /* Estilos de inputs */
+        input, select, button { padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+
+        /* --- OPTIMIZACIÓN MÓVIL --- */
+        @media (max-width: 768px) {
+            .header-admin h1 { font-size: 1.2rem; }
+            
+            /* Buscador y Filtros en la misma línea */
+            .search-row { display: flex !important; gap: 5px !important; }
+            .search-row input { flex: 2 !important; }
+            .search-row select { flex: 1 !important; }
+
+            /* Transformar Tabla en Tarjetas Visuales */
+            .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr { 
+                display: block !important; 
+            }
+            .admin-table thead { display: none !important; } /* Escondemos cabeceras */
+
+            .admin-table tr {
+                margin-bottom: 15px;
+                border: 2px solid #ddd;
+                border-radius: 10px;
+                padding: 10px;
+                background: #fff;
+            }
+
+            .admin-table td {
+                text-align: right !important;
+                padding-left: 45% !important;
+                position: relative;
+                border: none;
+                border-bottom: 1px solid #eee;
+                min-height: 35px;
+            }
+
+            /* Etiquetas de las tarjetas */
+            .admin-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #555;
+                text-transform: uppercase;
+                font-size: 10px;
+            }
+
+            .admin-table td:last-child { 
+                background: #f9f9f9; 
+                text-align: center !important; 
+                padding-left: 10px !important; 
+            }
+            
+            /* Inputs dentro de la tarjeta */
+            .admin-table input { width: 80% !important; text-align: right; }
+            .admin-table select { width: 85% !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-admin">
+        <h1>Gestión de Inventario</h1>
+        <a href="clientes.html">Directorio Clientes</a>
+        <a href="index.html">Ir a la Tienda</a>
+    </div>
+
+    <div style="width: 95%; margin: 10px auto;">
+        <button onclick="toggleSeccion('container-nuevo-producto')" style="background: #28a745; color: white; width: 100%; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            ➕ CARGAR NUEVO PRODUCTO
+        </button>
+    </div>
+
+    <div id="container-nuevo-producto" class="form-container" style="display: none;">
+    <form id="form-nuevo-producto"> <div style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" id="nuevo-nombre" placeholder="Nombre del producto" required>
+            <select id="nueva-categoria" class="form-select">
+    <option value="BAZAR">BAZAR</option>
+    <option value="BLANCOS">BLANCOS</option>
+    <option value="ELECTRO">ELECTRO</option>
+    <option value="ESCOLAR">ESCOLAR</option>
+    <option value="JUGUETERIA">JUGUETERIA</option>
+    <option value="INDUMENTARIA">INDUMENTARIA</option>
+    <option value="OTROS">OTROS</option>
+    </select>
+            <div style="display: flex; gap: 5px;">
+                <input type="number" id="nuevo-stock" placeholder="Stock" style="flex:1" required>
+                <input type="number" id="nuevo-costo" placeholder="Costo $" style="flex:1" required>
+                <input type="number" id="nuevo-venta" placeholder="Venta $" style="flex:1" required>
+            </div>
+            <input type="text" id="nuevo-link" placeholder="URL Foto (opcional)">
+            <input type="file" id="foto-archivo-nuevo" accept="image/*" style="font-size: 12px;"> 
+            <button type="submit" style="background: #28a745; color: white; font-weight: bold; padding: 12px; border:none; border-radius:5px;">AÑADIR A INVENTARIO</button>
+        </div>
+    </form>
+</div>
+
+    <div class="form-container" style="position: sticky; top: 0; z-index: 1000; border: 2px solid #007bff;">
+        <div class="search-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+    <input type="text" id="busqueda-admin" placeholder="🔍 Buscar producto..." style="flex: 2;" autocomplete="off">
+    
+    <select id="filtro-stock-admin" style="flex: 1;">
+        <option value="todos">Todos</option>
+        <option value="sin-stock">Sin Stock (0)</option>
+        <option value="stock-bajo">Stock Bajo (1-3)</option>
+    </select>
+</div>
+        <button id="btn-guardar-todo" style="background: #007bff; color: white; width: 100%; font-weight: bold; height: 45px;">
+    💾 GUARDAR TODOS LOS CAMBIOS
+</button>
+
+<p id="status-carga" style="text-align: center; font-size: 12px; font-weight: bold; margin-top: 5px;"></p>
+    </div>
+
+    <table class="admin-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Stock</th>
+            <th>Costo</th>
+            <th>Venta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody id="tabla-cuerpo"></tbody>
+</table>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+<script src="./js/firebase-init.js"></script>
+<script src="./js/productos.js"></script>
+<script src="./js/admin.js"></script>
+    <script>
+        function toggleSeccion(id) {
+            const el = document.getElementById(id);
+            el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+            if(el.style.display === 'block') el.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

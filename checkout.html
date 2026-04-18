@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindo Hogar - Carrito de Compras</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="./js/firebase-init.js"></script>
+    <!-- Origen del servidor MP (mismo host/puerto que PORT_MP en .env). Opcional si usás el predeterminado 3456. -->
+    <!-- <script>window.MP_SERVER_ORIGIN = "http://localhost:3456";</script> -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="./js/mp-init.js"></script>
+    <script src="./js/productos.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/carrito.js"></script>
+    <script defer src="./js/checkout.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-row">
+            <h1 class="header-title">Lindo Hogar - Carrito</h1>
+            <div class="header-actions">
+                <a class="header-link" href="index.html">← Volver a la Tienda</a>
+                <div id="auth-container"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla">
+                </tbody>
+            </table>
+
+            <div id="resumen-carrito" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px; display: none;">
+                <h3>Resumen</h3>
+                <p id="detalle-total-pago" style="font-size: 13px; color: #6c757d; margin-bottom: 10px;">
+                    Elegí cómo querés pagar. Mercado Pago aplica lista con +12% sobre cada ítem.
+                </p>
+                <p style="font-size: 16px; margin-bottom: 4px;">
+                    Efectivo / transferencia: <strong id="total-transferencia" style="color: #28a745;">$0</strong>
+                </p>
+                <p style="font-size: 16px; margin-bottom: 12px;">
+                    Mercado Pago (+12%): <strong id="total-mercadopago" style="color: #009ee3;">$0</strong>
+                </p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 15px; margin-top: 20px;">
+                <button onclick="vaciarTodo()" type="button"
+                        style="background-color: #f8f9fa; color: #dc3545; border: 1px solid #dc3545; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                    🗑️ Vaciar Carrito
+                </button>
+                
+                <button onclick="finalizarCompra('transferencia')" type="button"
+                        style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px;">
+                    💵 Efectivo / transferencia
+                </button>
+
+                <button onclick="finalizarCompra('mercado_pago')" type="button"
+                        style="background-color: #009ee3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px;">
+                    💳 Mercado Pago (Checkout Pro)
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

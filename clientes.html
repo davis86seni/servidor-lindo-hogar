@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gestión de Clientes - Lindo Hogar</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .header-admin { background: #333; color: white; padding: 15px; text-align: center; }
+        .header-admin a { color: white; text-decoration: none; margin: 0 10px; font-size: 14px; }
+
+        /* Contenedores Flexibles */
+        .form-container { width: 95%; margin: 10px auto; background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .admin-table { width: 95%; margin: 20px auto; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; }
+        .admin-table th, .admin-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .admin-table thead { background: #f8f9fa; }
+
+        /* Estilos de inputs generales */
+        input, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
+
+        /* --- MÓVIL: TARJETAS --- */
+        @media (max-width: 768px) {
+            .header-admin h1 { font-size: 1.2rem; }
+            .header-admin a { display: block; margin: 5px 0; }
+
+            #form-nuevo-cliente { display: flex !important; flex-direction: column !important; }
+            .form-container { position: relative !important; } 
+            
+            div[style*="display: flex"] { 
+                flex-direction: column !important; 
+                width: 95% !important; 
+                margin: 10px auto !important; 
+                gap: 15px !important;
+            }
+
+            .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr { 
+                display: block !important; 
+            }
+            .admin-table thead { display: none !important; }
+
+            .admin-table tr {
+                margin-bottom: 15px;
+                border: 2px solid #eee;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+
+            .admin-table td {
+                text-align: right !important;
+                padding-left: 50% !important;
+                position: relative;
+                border: none;
+                border-bottom: 1px solid #f9f9f9;
+            }
+
+            .admin-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #666;
+                text-transform: uppercase;
+                font-size: 11px;
+            }
+
+            .admin-table td:last-child {
+                text-align: center !important;
+                padding-left: 10px !important;
+                background: #fcfcfc;
+            }
+
+            button { width: 100%; height: 45px; margin-top: 5px; }
+        }
+    </style>
+    
+<body>
+    <div class="header-admin">
+        <h1>Directorio de Clientes</h1>
+        <a href="admin.html">Panel Productos</a>
+        <a href="index.html">Ir a la Tienda</a>
+    </div>
+
+    <div style="width: 95%; margin: 10px auto;">
+        <button onclick="toggleSeccion('container-nuevo-cliente')" style="background: #28a745; color: white; width: 100%; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            👤 REGISTRAR NUEVO CLIENTE ➕
+        </button>
+    </div>
+
+    <div id="container-nuevo-cliente" class="form-container" style="display: none; margin-top: 0;">
+        <div id="form-nuevo-cliente">
+             <input type="text" id="cli-nombre" placeholder="Nombre y Apellido" required style="width: 100%; margin-bottom: 10px;">
+             <input type="text" id="cli-dni" placeholder="DNI (Solo números)" style="width: 100%; margin-bottom: 10px;"> 
+             <input type="text" id="cli-telefono" placeholder="WhatsApp / Teléfono" required style="width: 100%; margin-bottom: 10px;">
+             <input type="text" id="cli-direccion" placeholder="Dirección de Entrega" required style="width: 100%; margin-bottom: 10px;">
+             <button onclick="registrarClienteManual()" style="background: #218838; color: white; font-weight: bold; width: 100%;">
+                 CONFIRMAR REGISTRO
+             </button>
+        </div>
+    </div>
+
+    <div class="form-container" style="position: sticky; top: 0; z-index: 1000; background: #fff; border: 2px solid #007bff;">
+    <div style="display: flex; gap: 10px; align-items: center;">
+        <input type="text" id="buscar-cliente" onkeyup="cargarClientes()" placeholder="🔍 Buscar nombre o DNI..." style="flex: 2; font-weight: bold; border: 1.5px solid #007bff;">
+        
+        <select id="filtro-estado" onchange="cargarClientes()" style="flex: 1; min-width: 100px;">
+            <option value="todos">Todos</option>
+            <option value="solo-fiados">Fiados</option>
+            <option value="solo-al-dia">Al Día</option>
+        </select>
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <input type="text" id="buscar-producto" onkeyup="filtrarPorProducto()" placeholder="📦 Filtrar por producto..." style="width: 100%;">
+    </div>
+</div>
+
+    <div style="width: 95%; margin: 10px auto;">
+        <button onclick="toggleSeccion('seccion-consultas')" style="background: #34495e; color: white; width: 100%; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            📊 GANANCIAS Y FLETES 🚚
+        </button>
+    </div>
+
+    <div id="seccion-consultas" class="form-container" style="background: #eef2f3; display: none; margin-top: 0;">
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <strong>📊 Consultas:</strong>
+            <input type="date" id="fecha-desde">
+            <input type="date" id="fecha-hasta">
+            <button id="btn-calcular" style="background: #28a745; color: white;">Calcular Ganancias</button>
+            <button onclick="cargarListaFletes()" style="background: #007bff; color: white;">🔍 Ver Fletes</button>
+        </div>
+        <hr>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <strong>🚚 Nuevo Gasto:</strong>
+            <input type="number" id="monto-gasto" placeholder="$" style="width: 80px;">
+            <input type="text" id="desc-gasto" placeholder="Descripción..." style="flex: 1;">
+            <button id="btn-guardar-gasto" style="background: #dc3545; color: white;">REGISTRAR</button>
+        </div>
+    </div>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>DNI</th> 
+                <th>WhatsApp</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-clientes"></tbody>
+    </table>
+
+    <div id="contenedor-historial-gastos" class="form-container" style="display:none;">
+        <h3>🚚 Detalle de Fletes / Gastos</h3>
+        <table class="admin-table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-gastos-body"></tbody>
+        </table>
+    </div>
+
+    <script>
+        function toggleSeccion(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "none") {
+                el.style.display = "block";
+                // Desplazamiento suave para centrar la sección abierta
+                el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                el.style.display = "none";
+            }
+        }
+    </script>
+        <!-- SECCIÓN DE PEDIDOS PENDIENTES -->
+    <div style="width: 95%; margin: 40px auto 10px;">
+        <h2 style="background: #dc3545; color: white; padding: 15px; border-radius: 8px; text-align: center;">
+            ⏳ PEDIDOS PENDIENTES DE CONFIRMACIÓN
+        </h2>
+    </div>
+
+    <div id="contenedor-pedidos-admin" style="width: 95%; margin: 20px auto;">
+        <!-- Aquí se cargarán los pedidos dinámicamente -->
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="./js/firebase-init.js"></script>
+    <script src="./js/productos.js"></script>
+    <script src="./js/clientes.js"></script>
+</body>
+</html>

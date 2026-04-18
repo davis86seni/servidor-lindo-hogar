@@ -1,0 +1,5204 @@
+[
+  {
+    "id": "10000",
+    "nombre": "Sabana Casatex Twin",
+    "categoria": "BLANCOS",
+    "costo": "13750.00",
+    "precio": "31000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10001",
+    "nombre": "Sabana Casatex Full",
+    "categoria": "BLANCOS",
+    "costo": "16100.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10002",
+    "nombre": "Sabana Casatex Queen",
+    "categoria": "BLANCOS",
+    "costo": "16700.00",
+    "precio": "36000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10003",
+    "nombre": "Sabana Casatex King",
+    "categoria": "BLANCOS",
+    "costo": "18840.00",
+    "precio": "39000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10004",
+    "nombre": "Sabana DyG King",
+    "categoria": "BLANCOS",
+    "costo": "18000.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10005",
+    "nombre": "Acolchado 1 1/2 linea premium estampado reversible",
+    "categoria": "BLANCOS",
+    "costo": "15600.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10006",
+    "nombre": "Acolchado 1 1/2 linea premium liso reversible",
+    "categoria": "BLANCOS",
+    "costo": "15600.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10007",
+    "nombre": "Acolchado 2 1/2 linea premium estampado reversible",
+    "categoria": "BLANCOS",
+    "costo": "19990.00",
+    "precio": "43000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10008",
+    "nombre": "Acolchado 2 1/2 linea premium liso reversible",
+    "categoria": "BLANCOS",
+    "costo": "19990.00",
+    "precio": "43000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10009",
+    "nombre": "Frazada economica 1pl",
+    "categoria": "BLANCOS",
+    "costo": "4372.00",
+    "precio": "11000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10010",
+    "nombre": "Frazada escocesa 1 1/2 economica",
+    "categoria": "BLANCOS",
+    "costo": "4990.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10011",
+    "nombre": "Alfombra banÌo con memoria 60*40",
+    "categoria": "BLANCOS",
+    "costo": "3660.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10012",
+    "nombre": "alfombra banÌo siliconada",
+    "categoria": "BLANCOS",
+    "costo": "3090.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10013",
+    "nombre": "Alfombra bienvenido con goma 60x40",
+    "categoria": "BLANCOS",
+    "costo": "3290.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10014",
+    "nombre": "Alfombra de pelos felpuda antideslizante 40x60",
+    "categoria": "BLANCOS",
+    "costo": "2990.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10015",
+    "nombre": "Alfombra luminosa magica antidelizante",
+    "categoria": "BLANCOS",
+    "costo": "3250.00",
+    "precio": "8500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10016",
+    "nombre": "Alfombra panel abeja",
+    "categoria": "BLANCOS",
+    "costo": "3367.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10017",
+    "nombre": "ALMOHADA VISCOELASTICA INTELIGENTE CERVICAL",
+    "categoria": "BLANCOS",
+    "costo": "7790.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10018",
+    "nombre": "ALMOHADA ECONOMICA RECICLADA",
+    "categoria": "BLANCOS",
+    "costo": "2600.00",
+    "precio": "7500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10019",
+    "nombre": "ALMOHADA VISCOELASTICA INTELIGENTE CLASICA",
+    "categoria": "BLANCOS",
+    "costo": "7790.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10020",
+    "nombre": "JUEGO CORTINAS PARA COCINA MAS MANTEL ESTAMPADO",
+    "categoria": "BLANCOS",
+    "costo": "4290.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10021",
+    "nombre": "JUEGO CORTINAS PARA COCINA MAS MANTEL LISO MICROF",
+    "categoria": "BLANCOS",
+    "costo": "4290.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10022",
+    "nombre": "JUEGO CORTINAS COCINA CON GUARDA tela microfibra",
+    "categoria": "BLANCOS",
+    "costo": "4940.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10023",
+    "nombre": "juego cortinas TROPICAL MECANICO MEDIDAS 1.40*2",
+    "categoria": "BLANCOS",
+    "costo": "8450.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10024",
+    "nombre": "Cortina banÌo personajes con protector y ganchos",
+    "categoria": "BLANCOS",
+    "costo": "3120.00",
+    "precio": "7500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10025",
+    "nombre": "cortina de banÌo doble con protector",
+    "categoria": "BLANCOS",
+    "costo": "2750.00",
+    "precio": "7500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10026",
+    "nombre": "juego cortinas black out importadas medidas",
+    "categoria": "BLANCOS",
+    "costo": "18990.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10027",
+    "nombre": "juego cortinas madras con faldoÌn",
+    "categoria": "BLANCOS",
+    "costo": "11700.00",
+    "precio": "25500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10028",
+    "nombre": "juego cortinas madras estampada",
+    "categoria": "BLANCOS",
+    "costo": "13910.00",
+    "precio": "28000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10029",
+    "nombre": "juego cortinas voile (solo blanco) 2 x 1.40 cada panÌo",
+    "categoria": "BLANCOS",
+    "costo": "7750.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10030",
+    "nombre": "MANTEL ECOCUERO 2 x 1.40 estampado MEDIDAS 2 * 140",
+    "categoria": "BLANCOS",
+    "costo": "5265.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10031",
+    "nombre": "Mantel ecocuero 2 x 1.40 liso",
+    "categoria": "BLANCOS",
+    "costo": "5265.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10032",
+    "nombre": "MANTEL ECOCUERO 2.40 x 1.40 estampado",
+    "categoria": "BLANCOS",
+    "costo": "6305.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10033",
+    "nombre": "Mantel ecocuero 2.40 x 1.40 liso",
+    "categoria": "BLANCOS",
+    "costo": "6305.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10034",
+    "nombre": "Mantel ecocuero 3m x 1.40 Liso y estampado",
+    "categoria": "BLANCOS",
+    "costo": "8060.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10035",
+    "nombre": "mantel microfibra 2m",
+    "categoria": "BLANCOS",
+    "costo": "2275.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10036",
+    "nombre": "mantel microfibra redondo 1.8",
+    "categoria": "BLANCOS",
+    "costo": "3575.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10037",
+    "nombre": "MANTEL NAVIDENÌO 2M TELA MICROFIBRA MEDIDAS 2*1.15",
+    "categoria": "BLANCOS",
+    "costo": "2210.00",
+    "precio": "6500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10038",
+    "nombre": "Docena repasador toalla pesado hindu 40x60",
+    "categoria": "BLANCOS",
+    "costo": "1000.00",
+    "precio": "2000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10039",
+    "nombre": "JUEGO SABANAS 1 1/2 ESTAMPADAS LINEA PREMIUM",
+    "categoria": "BLANCOS",
+    "costo": "6151.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10040",
+    "nombre": "juego sabanas 2 1/2 linea premium",
+    "categoria": "BLANCOS",
+    "costo": "7729.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10041",
+    "nombre": "JUEGO SABANAS KING SIZE TELA MICROFIBRA",
+    "categoria": "BLANCOS",
+    "costo": "13807.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10042",
+    "nombre": "JUEGO SABANAS QUEEN SIZE TELA MICROFIBRA",
+    "categoria": "BLANCOS",
+    "costo": "11195.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10043",
+    "nombre": "SABANA AJUSTABLE 1 1/2 TELA MICROFIBRA",
+    "categoria": "BLANCOS",
+    "costo": "3490.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10044",
+    "nombre": "sabana ajustable 2 1/2",
+    "categoria": "BLANCOS",
+    "costo": "4160.00",
+    "precio": "10500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10045",
+    "nombre": "sabana ajustable king size 2*2 mas 40 de alto",
+    "categoria": "BLANCOS",
+    "costo": "6882.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10046",
+    "nombre": "sabana ajustable queen size 1.60*2 mas 35 de alto",
+    "categoria": "BLANCOS",
+    "costo": "5731.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10047",
+    "nombre": "juego toalla toallon franco valente 400gr",
+    "categoria": "BLANCOS",
+    "costo": "12530.00",
+    "precio": "26000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10048",
+    "nombre": "Toalla toallon arco iris detroit 500gr 100% AlgodoÌn",
+    "categoria": "BLANCOS",
+    "costo": "17613.00",
+    "precio": "36000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10049",
+    "nombre": "TOALLON ARCO IRIS NAUTICAL 500GR",
+    "categoria": "BLANCOS",
+    "costo": "12796.00",
+    "precio": "28000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10050",
+    "nombre": "JUEGO TOALLA TOALLON ARCO IRIS BELLY 450GR",
+    "categoria": "BLANCOS",
+    "costo": "13396.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10051",
+    "nombre": "Juego toalla toallon palette Algodon 420 gra",
+    "categoria": "BLANCOS",
+    "costo": "12161.00",
+    "precio": "26000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10052",
+    "nombre": "Toallon 100% algodon personajes disney marvel importado",
+    "categoria": "BLANCOS",
+    "costo": "5485.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10053",
+    "nombre": "Toallon pesado 600gr algodoÌn quality con valijita 70x150",
+    "categoria": "BLANCOS",
+    "costo": "9990.00",
+    "precio": "26000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10054",
+    "nombre": "VASO TEÌRMICO CAPIBARA DOBLE PICO 600ML",
+    "categoria": "BAZAR",
+    "costo": "5950.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10055",
+    "nombre": "TERMO SPORT METALIZADO C/MANIJA 2500ML",
+    "categoria": "BAZAR",
+    "costo": "14000.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10056",
+    "nombre": "VASO TEÌRMICO COFFEE BICOLOR DIGITAL",
+    "categoria": "BAZAR",
+    "costo": "5600.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10057",
+    "nombre": "MAÌQUINA TOSTADORA SANDWICH X4",
+    "categoria": "ELECTRO",
+    "costo": "15400.00",
+    "precio": "33000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10058",
+    "nombre": "CUELLERA LABUBU P/VIAJE C/OREJITAS",
+    "categoria": "BLANCOS",
+    "costo": "6550.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10059",
+    "nombre": "MANTA-COLCHA ACANALADA C/CORDERITO 2 PLAZAS LISA",
+    "categoria": "BLANCOS",
+    "costo": "10499.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10060",
+    "nombre": "MANTA-COLCHA ACANALADA CUADROS C/CORDERITO 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "10800.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10061",
+    "nombre": "VASO TEÌRMICO LABUBU C/PICO Y MUNÌECO 3D 450ML",
+    "categoria": "BAZAR",
+    "costo": "5550.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10062",
+    "nombre": "LONCHERA TEÌRMICA ESTAMPADA",
+    "categoria": "BAZAR",
+    "costo": "1550.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10063",
+    "nombre": "WAFLERA-MAÌQUINA PARA HACER WAFLES",
+    "categoria": "ELECTRO",
+    "costo": "15550.00",
+    "precio": "33000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10064",
+    "nombre": "PELUCHE CAPIBARA CON MANTA ACOSTADO",
+    "categoria": "JUGUETERIA",
+    "costo": "13750.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10065",
+    "nombre": "BAÌLSAMO LABIAL FRUTILLA X24u",
+    "categoria": "JUGUETERIA",
+    "costo": "512.00",
+    "precio": "1500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10066",
+    "nombre": "HUMIDIFICADOR FLORES C/LUZ",
+    "categoria": "ELECTRO",
+    "costo": "5700.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10067",
+    "nombre": "SET PJMASKS X3 HEÌROES EN PIJAMA MEDIA DOCENA",
+    "categoria": "JUGUETERIA",
+    "costo": "1000.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10068",
+    "nombre": "ACOLCHADO ACANALADO C/CORDERITO + 2 FUNDAS 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "31900.00",
+    "precio": "60000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10069",
+    "nombre": "PELUCHE MANTA CAPIBARA STICH, HAMBURGUESA,FLOR",
+    "categoria": "JUGUETERIA",
+    "costo": "15990.00",
+    "precio": "34500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10070",
+    "nombre": "ACOLCHADO ESTAMPADOS C/CORDERITO 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "15250.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10071",
+    "nombre": "AUTOCEBANTE SIMIL STANLEY MATE-TEREREÌ 750ML",
+    "categoria": "BAZAR",
+    "costo": "9200.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10072",
+    "nombre": "PIZARRA MAÌGICA INFANTIL DISNEY",
+    "categoria": "JUGUETERIA",
+    "costo": "2100.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10073",
+    "nombre": "BOTELLA TEÌRMICA DOBLE PICO KAWAI \"\"HAPPY\"\" CON CORREA",
+    "categoria": "BAZAR",
+    "costo": "7950.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10074",
+    "nombre": "LLAVEROS SURTIDOS 2D X6",
+    "categoria": "JUGUETERIA",
+    "costo": "4000.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10075",
+    "nombre": "CALZAS TEÌRMICAS EFECTO PIEL",
+    "categoria": "INDUMENTARIA",
+    "costo": "4850.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10076",
+    "nombre": "BOTELLA TEÌRMICA KAWAI \"\"HAPPY\"\" CON CORREA",
+    "categoria": "BAZAR",
+    "costo": "7950.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10077",
+    "nombre": "GUANTES HOMBRE IMPERMEABLE P/MOTO CON PIEL",
+    "categoria": "INDUMENTARIA",
+    "costo": "3050.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10078",
+    "nombre": "PIJAMA BATA DE PLUSH MIKE WAZOWSKI Y OSO LOTSO",
+    "categoria": "INDUMENTARIA",
+    "costo": "10550.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10079",
+    "nombre": "BOTELLA TEÌRMICA LABUBU CON AGARRE ARRIBA 1000ML",
+    "categoria": "BAZAR",
+    "costo": "8650.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10080",
+    "nombre": "GORROS HOMBRE LISO C/PIEL POR DENTRO",
+    "categoria": "INDUMENTARIA",
+    "costo": "1400.00",
+    "precio": "4000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10081",
+    "nombre": "BOTELLA TEÌRMICA \"\"MONDAY+ DRINK\"\" 1000ML",
+    "categoria": "BAZAR",
+    "costo": "8500.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10082",
+    "nombre": "PELUCHE MANTA CAPIBARA FLOR, BABERO, MOCHILAS",
+    "categoria": "JUGUETERIA",
+    "costo": "15999.00",
+    "precio": "34500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10083",
+    "nombre": "MANTA CAPIBARA GRANDE. SE HACE PELUCHE",
+    "categoria": "BLANCOS",
+    "costo": "7200.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10084",
+    "nombre": "PLUMONES X60 DOBLE PUNTA",
+    "categoria": "ESCOLAR",
+    "costo": "8300.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10085",
+    "nombre": "MANTA-COLCHA PIEL DE MONO C/CORDERITO 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "13600.00",
+    "precio": "33000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10086",
+    "nombre": "ALFOMBRAS GRANDE PIEL DE MONO 1x1.5m",
+    "categoria": "BLANCOS",
+    "costo": "14000.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10087",
+    "nombre": "BOTELLA TEÌRMICA PUPPY KAWAI DOBLE PICO 500ML",
+    "categoria": "BAZAR",
+    "costo": "7100.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10088",
+    "nombre": "VASO TEÌRMICO SIMIL STANLEY CON PARLANTE Y ABRELATAS",
+    "categoria": "BAZAR",
+    "costo": "10680.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10089",
+    "nombre": "COLCHA-MANTA C/RELIEVE ANCLA C/CORDERITO 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "11900.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10090",
+    "nombre": "COLCHA-MANTA C/RELIEVE FLOR C/CORDERITO 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "11900.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10091",
+    "nombre": "GORRO INFANTIL PANDA CON CUELLITO",
+    "categoria": "INDUMENTARIA",
+    "costo": "3400.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10092",
+    "nombre": "SOMBRILLA CUBRE PARABRISAS",
+    "categoria": "OTROS",
+    "costo": "5280.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10093",
+    "nombre": "BANCO PLEGABLE TELESCOPING",
+    "categoria": "OTROS",
+    "costo": "9500.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10094",
+    "nombre": "AUTOCEBANTE SIMIL STANLEY \"\"MATE-TEREREÌ\"\" 700ML",
+    "categoria": "BAZAR",
+    "costo": "9200.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10095",
+    "nombre": "AUTOCEBANTE SIMIL STANLEY \"\"MATE-TEREREÌ\"\" 500ML",
+    "categoria": "BAZAR",
+    "costo": "8800.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10096",
+    "nombre": "VASO QUENCHER CAPIBARA SIN MANIJA DOBLE PICO 900ML",
+    "categoria": "BAZAR",
+    "costo": "8200.00",
+    "precio": "18500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10097",
+    "nombre": "LAÌMPARA PARANTE HUEVO GALAXIA C/CONTROL",
+    "categoria": "ELECTRO",
+    "costo": "17350.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10098",
+    "nombre": "VASO QUENCHER CUADRICULADO 1200ML",
+    "categoria": "BAZAR",
+    "costo": "9100.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10099",
+    "nombre": "COLCHA \"\"D. TORTUGA\"\" 2 PLAZAS",
+    "categoria": "BLANCOS",
+    "costo": "11080.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10100",
+    "nombre": "VASO TEÌRMICO LABUBU DOBLE PICO C/TAPA",
+    "categoria": "BAZAR",
+    "costo": "7100.00",
+    "precio": "18500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10101",
+    "nombre": "COLCHA LUMINOSA 1 PLAZA Y MEDIA",
+    "categoria": "BLANCOS",
+    "costo": "5900.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10102",
+    "nombre": "ALFOMBRA RECTANGULAR CARITA FELIZ",
+    "categoria": "BLANCOS",
+    "costo": "3200.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10103",
+    "nombre": "ALFOMBRA GRANDE RECTANGULAR CARITA FELIZ",
+    "categoria": "BLANCOS",
+    "costo": "3700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10104",
+    "nombre": "VASO QUENCHER ICE CREAM TEÌRMICO 1000ML",
+    "categoria": "BAZAR",
+    "costo": "7900.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10105",
+    "nombre": "VASO TIPO QUENCHER KAWAI D. ANIMALES C/FRUTA",
+    "categoria": "BAZAR",
+    "costo": "10100.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10106",
+    "nombre": "VASO QUENCHER KAWAI GATITO D. RAYAS",
+    "categoria": "BAZAR",
+    "costo": "11950.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10107",
+    "nombre": "JUGUETE CHIFLE PERRITO PARA MASCOTA",
+    "categoria": "JUGUETERIA",
+    "costo": "1100.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10108",
+    "nombre": "CEPILLO PARA MASCOTAS A VAPOR",
+    "categoria": "JUGUETERIA",
+    "costo": "2150.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10109",
+    "nombre": "LAÌMPARA CAPIBARA FORMA TAZA",
+    "categoria": "ELECTRO",
+    "costo": "3600.00",
+    "precio": "9500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10110",
+    "nombre": "PIZARRA MAÌGICA 8,5'' TIPO TABLET",
+    "categoria": "JUGUETERIA",
+    "costo": "2800.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10111",
+    "nombre": "TERMO BICOLOR SIMIL STANLEY CON TAPA TAZA \"\"YOU CHOSE",
+    "categoria": "BAZAR",
+    "costo": "8600.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10112",
+    "nombre": "SET TENEDORES X 6 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "1550.00",
+    "precio": "4000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10113",
+    "nombre": "REPOSERA INFANTIL PLEGABLE CON SOMBRILLA",
+    "categoria": "OTROS",
+    "costo": "18100.00",
+    "precio": "39000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10114",
+    "nombre": "ALFOMBRA CAPIBARA OVALADA \"\"SUAVE\"\"",
+    "categoria": "BLANCOS",
+    "costo": "2550.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10115",
+    "nombre": "ALFOMBRA CAPIBARA GRANDE RECTANGULAR",
+    "categoria": "BLANCOS",
+    "costo": "3350.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10116",
+    "nombre": "AUTOCEBANTE SIMIL STANLEY \"\"MATE-TEREREÌ\"\" 1000ML",
+    "categoria": "BAZAR",
+    "costo": "10700.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10117",
+    "nombre": "MEDIAS CAPIBARA X10pares",
+    "categoria": "INDUMENTARIA",
+    "costo": "810.00",
+    "precio": "2000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10118",
+    "nombre": "POPIT ELECTROÌNICO CAPIBARA",
+    "categoria": "JUGUETERIA",
+    "costo": "5200.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10119",
+    "nombre": "ALAS FORMA MARIPOSA C/LUCES \"\"BUTTERFLY WINGS\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "10850.00",
+    "precio": "21700.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10120",
+    "nombre": "TERMO MEDIA MANIJA SIMIL STANLEY C/MATE Y BOMBILLA",
+    "categoria": "BAZAR",
+    "costo": "13950.00",
+    "precio": "31000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10121",
+    "nombre": "MATE SIMI STANLEY C/TAPA",
+    "categoria": "BAZAR",
+    "costo": "4300.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10122",
+    "nombre": "BURBUJERO HELICOÌPTERO C/OSITO Y LUZ",
+    "categoria": "JUGUETERIA",
+    "costo": "6400.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10123",
+    "nombre": "BOTELLA TEÌRMICA SIMIL STANLEY C/PICO 600ML C/GANCHO",
+    "categoria": "BAZAR",
+    "costo": "6300.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10124",
+    "nombre": "PISTOLA CON COMETA",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10125",
+    "nombre": "MAÌQUINA DE BOX MUSICAL C/GUANTES",
+    "categoria": "JUGUETERIA",
+    "costo": "17300.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10126",
+    "nombre": "CAMIOÌN CABEZA DINO C/DINOSAURIOS",
+    "categoria": "JUGUETERIA",
+    "costo": "4650.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10127",
+    "nombre": "BOTELLA TEÌRMICA CORAZOÌN \"\"SUNLIGHT\"\" 500ML",
+    "categoria": "BAZAR",
+    "costo": "6700.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10128",
+    "nombre": "PISTOLA BURBUJERO CABEZA DINO",
+    "categoria": "JUGUETERIA",
+    "costo": "8350.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10129",
+    "nombre": "CANGREJO QUE CAMINA C/LUZ Y SONIDO",
+    "categoria": "JUGUETERIA",
+    "costo": "4200.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10130",
+    "nombre": "CESTO/TACHO CAPIBARA CON RELIEVE",
+    "categoria": "BAZAR",
+    "costo": "2600.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10131",
+    "nombre": "PISTOLA DOBLE LANZA DARDOS EN BLISTER",
+    "categoria": "JUGUETERIA",
+    "costo": "1900.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10132",
+    "nombre": "REPUESTO NÂ°3 AFA C/DISENÌO SELECCIOÌN X480 HOJAS",
+    "categoria": "ESCOLAR",
+    "costo": "14490.00",
+    "precio": "28980.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10133",
+    "nombre": "VASO TEÌRMICO MARMOLADO C/ABRELATAS",
+    "categoria": "BAZAR",
+    "costo": "5200.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10134",
+    "nombre": "LAÌMPARA ASTRONAUTA C/PORTA LAÌPICES",
+    "categoria": "ELECTRO",
+    "costo": "3200.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10135",
+    "nombre": "VASO QUENCHER SIÌMIL STANLEY C/AGARRE ARRIBA + 2 VASOS",
+    "categoria": "BAZAR",
+    "costo": "12900.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10136",
+    "nombre": "LAÌMPARA CAPIBARA C/PORTALAÌPICES Y SACAPUNTAS",
+    "categoria": "ELECTRO",
+    "costo": "3950.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10137",
+    "nombre": "BRAZALETE CAPIBARA CON ABEJITA",
+    "categoria": "JUGUETERIA",
+    "costo": "3700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10138",
+    "nombre": "MOCHILA CRUZADA CAPIBARA",
+    "categoria": "ESCOLAR",
+    "costo": "2650.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10139",
+    "nombre": "PISTOLA NEGRA \"\"CORPS\"\" +BINOCULARES +WALKIE TALKIE",
+    "categoria": "JUGUETERIA",
+    "costo": "2200.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10140",
+    "nombre": "MOCHILA TEÌRMICA CONSERVADORA",
+    "categoria": "ESCOLAR",
+    "costo": "11950.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10141",
+    "nombre": "MOCHILA CRUZADA DINO",
+    "categoria": "ESCOLAR",
+    "costo": "1999.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10142",
+    "nombre": "PESCAMAGIG \"\"FISHING EXPERT\"\" GRANDE",
+    "categoria": "JUGUETERIA",
+    "costo": "3850.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10143",
+    "nombre": "LONCHERA FRUTILLA C/CUBIERTOS",
+    "categoria": "BAZAR",
+    "costo": "2950.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10144",
+    "nombre": "BOTELLA TEÌRMICA \"\"COLORFUL\"\" C/LLAVERO FLOR",
+    "categoria": "BAZAR",
+    "costo": "7850.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10145",
+    "nombre": "SALTARIÌN PANDA Y GATITO C/LUCES",
+    "categoria": "JUGUETERIA",
+    "costo": "13200.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10146",
+    "nombre": "LONCHERA REDONDA \"\"LUNCH BOX\"\" C/CUBIERTOS",
+    "categoria": "BAZAR",
+    "costo": "2750.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10147",
+    "nombre": "BOLSO MOCHILA 2 EN 1 DEPORTIVO BAIDE LISO",
+    "categoria": "ESCOLAR",
+    "costo": "10800.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10148",
+    "nombre": "CARTUCHERA/NECESER CAPIBARA",
+    "categoria": "ESCOLAR",
+    "costo": "2380.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10149",
+    "nombre": "MOCHILA JUVENIL ESTAMPADA 3 CIERRES BAIDE",
+    "categoria": "ESCOLAR",
+    "costo": "9200.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10150",
+    "nombre": "LONCHERA KAWAI INFANTIL D.FRUTAS SPACE SWEET",
+    "categoria": "BAZAR",
+    "costo": "2800.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10151",
+    "nombre": "VENTILADOR DE MANO C/OREJAS C/PORTACELULAR",
+    "categoria": "ELECTRO",
+    "costo": "5650.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10152",
+    "nombre": "BOLSO DE VIAJE LISO TIPO ARRUCHADO C/TIRA",
+    "categoria": "ESCOLAR",
+    "costo": "10200.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10153",
+    "nombre": "MOCHILA KAWAI 4 PIEZAS OSITO C/MONÌO",
+    "categoria": "ESCOLAR",
+    "costo": "10400.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10154",
+    "nombre": "MOCHILA VIAJERA BICOLOR REFORZADA C/BROCHES",
+    "categoria": "ESCOLAR",
+    "costo": "11600.00",
+    "precio": "26000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10155",
+    "nombre": "MOCHILA HOMBRE LISA REFORZADA 4 CIERRES",
+    "categoria": "ESCOLAR",
+    "costo": "13900.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10156",
+    "nombre": "LANZA CONFETI COTILLOÌN GRANDE",
+    "categoria": "JUGUETERIA",
+    "costo": "2400.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10157",
+    "nombre": "LANZA CONFETI COTILLOÌN MEDIANO",
+    "categoria": "JUGUETERIA",
+    "costo": "1600.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10158",
+    "nombre": "ANIMAL SET EN BOLSA X6",
+    "categoria": "JUGUETERIA",
+    "costo": "1000.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10159",
+    "nombre": "BLISTER NARUTO INDIVIDUAL X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "750.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10160",
+    "nombre": "DINO DESARMABLE DIDAÌCTICO",
+    "categoria": "JUGUETERIA",
+    "costo": "3250.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10161",
+    "nombre": "MOCHILA 3 EN 1 DISENÌO PIANO C/CARTUCHERA Y LONCHERA",
+    "categoria": "ESCOLAR",
+    "costo": "18350.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10162",
+    "nombre": "MAÌQUINA PARA CALENTAR CERA",
+    "categoria": "ELECTRO",
+    "costo": "6900.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10163",
+    "nombre": "MOCHILA SANRIO-KUROMI C/PIN PELUCHE",
+    "categoria": "ESCOLAR",
+    "costo": "8600.00",
+    "precio": "18500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10164",
+    "nombre": "RELOJ SANRIO-KUROMI FORMA MANZANA",
+    "categoria": "BAZAR",
+    "costo": "4450.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10165",
+    "nombre": "MUNÌECO SORPRESA STICH DE COLECCIOÌN X6u",
+    "categoria": "JUGUETERIA",
+    "costo": "1000.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10166",
+    "nombre": "YOYO DINO C/LUZ EN BLISTER X6U",
+    "categoria": "JUGUETERIA",
+    "costo": "4300.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10167",
+    "nombre": "SQUISHI ASTRONAUTA X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "870.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10168",
+    "nombre": "LANZA AGUA \"\"POLY FLOT\"\" 60CM",
+    "categoria": "JUGUETERIA",
+    "costo": "3650.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10169",
+    "nombre": "LANZA AGUA \"\"POLY FLOT\"\" 35CM",
+    "categoria": "JUGUETERIA",
+    "costo": "2650.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10170",
+    "nombre": "BEBOTE CON ACCESORIOS",
+    "categoria": "JUGUETERIA",
+    "costo": "4550.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10171",
+    "nombre": "TRHILLER SUPER TRUCK C/5 AUTOS",
+    "categoria": "JUGUETERIA",
+    "costo": "2800.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10172",
+    "nombre": "TOMATODO TIPO QUENCHER ICE CREAM 1400ML",
+    "categoria": "BAZAR",
+    "costo": "4900.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10173",
+    "nombre": "RELOJ SANRIO-KUROMI REDONDO",
+    "categoria": "BAZAR",
+    "costo": "4450.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10174",
+    "nombre": "KIT ESCOLAR SANRIO-KUROMI C/CARTUCHERA",
+    "categoria": "ESCOLAR",
+    "costo": "4100.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10175",
+    "nombre": "KIT ESCOLAR SANRIO-KUROMI C/BILLETERA",
+    "categoria": "ESCOLAR",
+    "costo": "2100.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10176",
+    "nombre": "PEINE CEPILLO SANRIO-KUROMI",
+    "categoria": "BAZAR",
+    "costo": "2650.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10177",
+    "nombre": "LANZA CONFETI COTILLOÌN PEQUENÌO",
+    "categoria": "JUGUETERIA",
+    "costo": "1100.00",
+    "precio": "3500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10178",
+    "nombre": "RELOJ GRANDE COLOR BLANCO Y NEGRO",
+    "categoria": "BAZAR",
+    "costo": "3900.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10179",
+    "nombre": "BURBUJERO DINO EN BLISTER",
+    "categoria": "JUGUETERIA",
+    "costo": "2900.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10180",
+    "nombre": "CAMIONES DE CONSTRUCCIOÌN AMARILLOS 3 MODELOS",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10181",
+    "nombre": "MUNÌECA HADA SIRENA CON HIJA + ACCESORIOS EN BLISTER",
+    "categoria": "JUGUETERIA",
+    "costo": "1950.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10182",
+    "nombre": "VINCHA NAVIDENÌA FORRADA EN TELA X6U",
+    "categoria": "JUGUETERIA",
+    "costo": "5850.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10183",
+    "nombre": "PELUCHE AVENGERS",
+    "categoria": "JUGUETERIA",
+    "costo": "6050.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10184",
+    "nombre": "MAÌQUINAS DE CONSTRUCCIOÌN AMARILLAS X3 EN BOLSA",
+    "categoria": "JUGUETERIA",
+    "costo": "6100.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10185",
+    "nombre": "SET DINO DIDAÌCTICO X2 CON CAMIOÌN",
+    "categoria": "JUGUETERIA",
+    "costo": "8600.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10186",
+    "nombre": "CAMIOÌN GRANDE \"\"TRUCK DONOS\"\" CON DINOSAURIOS",
+    "categoria": "JUGUETERIA",
+    "costo": "9850.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10187",
+    "nombre": "PAPAÌ NOEL QUE ESCALA C/ESCALERA",
+    "categoria": "JUGUETERIA",
+    "costo": "9450.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10188",
+    "nombre": "AUTO A CONTROL REMOTO \"\"MOKA\"\" CAJA NEGRA",
+    "categoria": "JUGUETERIA",
+    "costo": "7100.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10189",
+    "nombre": "TRACTOR TRUCK GRANDE AMARILLO X1 EN BOLSA",
+    "categoria": "JUGUETERIA",
+    "costo": "5150.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10190",
+    "nombre": "DUCHA EXTERIOR PORTAÌTIL",
+    "categoria": "OTROS",
+    "costo": "18280.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10191",
+    "nombre": "BARBIE EN MOTO C/ACCESORIOS",
+    "categoria": "JUGUETERIA",
+    "costo": "10650.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10192",
+    "nombre": "CAMIOÌN TANQUE MILITAR EN BLISTER",
+    "categoria": "JUGUETERIA",
+    "costo": "2780.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10193",
+    "nombre": "SET DINOS DE GOMA X6 u MEDIANO",
+    "categoria": "JUGUETERIA",
+    "costo": "8880.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10194",
+    "nombre": "SET DINOS X6 DE GOMA GRANDE",
+    "categoria": "JUGUETERIA",
+    "costo": "11580.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10195",
+    "nombre": "PAPAÌ NOEL QUE ESCALA MUSICAL",
+    "categoria": "JUGUETERIA",
+    "costo": "9010.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10196",
+    "nombre": "CAMIOÌN CONSTRUCCIOÌN AMARILLO X1 EN BOLSA",
+    "categoria": "JUGUETERIA",
+    "costo": "2450.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10197",
+    "nombre": "CESTO TEJIDO P/ROPA SUCIA-ALMACENAMIENTO, ETC",
+    "categoria": "BAZAR",
+    "costo": "8350.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10198",
+    "nombre": "SET ACCESORIOS PARA BANÌO x6 PIEZAS",
+    "categoria": "BLANCOS",
+    "costo": "13200.00",
+    "precio": "28000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10199",
+    "nombre": "BLISTER PISTOLA LANZA DARDOS C/PATITOS",
+    "categoria": "JUGUETERIA",
+    "costo": "1600.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10200",
+    "nombre": "MUNÌECA FLACA EN BOLSA X6",
+    "categoria": "JUGUETERIA",
+    "costo": "875.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10201",
+    "nombre": "MUNÌECA FLACA C/ACCESORIOS EN BOLSA X6",
+    "categoria": "JUGUETERIA",
+    "costo": "875.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10202",
+    "nombre": "LONCHERA TEÌRMICA LARGA KAWAI ANIMALES",
+    "categoria": "BAZAR",
+    "costo": "3100.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10203",
+    "nombre": "LAÌMPARA P/LECTURA-MESA DE LUZ",
+    "categoria": "ELECTRO",
+    "costo": "3500.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10204",
+    "nombre": "BOTELLA TEÌRMICA INFANTIL \"\"OX\"\" OSITO \"\"M/N B4AR\"\"",
+    "categoria": "BAZAR",
+    "costo": "11100.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10205",
+    "nombre": "BLISTER BLUEY X4 MUNÌECOS",
+    "categoria": "JUGUETERIA",
+    "costo": "4150.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10206",
+    "nombre": "VASO QUENCHER 3 EN 1 C/2 VASOS C/TAPA",
+    "categoria": "BAZAR",
+    "costo": "15980.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10207",
+    "nombre": "JUEGO DIDAÌCTICO TRIANGLE \"\"CUBO GIRATORIO\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "3350.00",
+    "precio": "8500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10208",
+    "nombre": "CAMIOÌN SET PLAYA EN RED",
+    "categoria": "JUGUETERIA",
+    "costo": "1950.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10209",
+    "nombre": "FREGONA C/BALDE 2 DIVISIONES",
+    "categoria": "BAZAR",
+    "costo": "8900.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10210",
+    "nombre": "BOLSO KUROMI,KITTY Y MINNIE",
+    "categoria": "ESCOLAR",
+    "costo": "14150.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10211",
+    "nombre": "MUNÌECO PAPAÌ NOEL CON GUITARRA MUSICAL C/LUZ",
+    "categoria": "JUGUETERIA",
+    "costo": "13320.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10212",
+    "nombre": "ALFOMBRA NAVIDENÌA",
+    "categoria": "BLANCOS",
+    "costo": "1850.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10213",
+    "nombre": "PLANCHA DE MAÌQUINA DE AFEITAR X24u",
+    "categoria": "OTROS",
+    "costo": "4980.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10214",
+    "nombre": "MUNÌECA PRINCESA SOFIA GRANDE",
+    "categoria": "JUGUETERIA",
+    "costo": "6900.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10215",
+    "nombre": "MOCHILA SIÌMIL CUERO LOVE 2 CIERRES",
+    "categoria": "ESCOLAR",
+    "costo": "4300.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10216",
+    "nombre": "BALANZA GRAMERA COLORES",
+    "categoria": "BAZAR",
+    "costo": "3700.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10217",
+    "nombre": "MINI LAPICERAS MULTICOLOR FRUTAS Y PALTA X6u",
+    "categoria": "ESCOLAR",
+    "costo": "4320.00",
+    "precio": "1500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10218",
+    "nombre": "LAMPARA ASTRONAUTA CON ESFERA GALAXIA MEDIANO",
+    "categoria": "ELECTRO",
+    "costo": "8600.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10219",
+    "nombre": "BOTELLA TEÌRMICA DE ACERO LISA 3 EN 1",
+    "categoria": "BAZAR",
+    "costo": "13860.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10220",
+    "nombre": "BILLETERA PEQUENÌA \"\"FOREVER YOUNG\"\" CORAZOÌN",
+    "categoria": "OTROS",
+    "costo": "2500.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10221",
+    "nombre": "BILLETERA PEQUENÌA C/DIJE CORAZOÌN CON FLECHA 1 CIERRE",
+    "categoria": "OTROS",
+    "costo": "2500.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10222",
+    "nombre": "PLUMONES X36 DOBLE PLUNTA",
+    "categoria": "ESCOLAR",
+    "costo": "6400.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10223",
+    "nombre": "LAÌMPARA 3D ESFERA GALAXIA GRANDE",
+    "categoria": "ELECTRO",
+    "costo": "7500.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10224",
+    "nombre": "BILLETERA DAMA PEQUENÌA CORAZOÌN BORDADO C/POMPOÌN",
+    "categoria": "OTROS",
+    "costo": "2300.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10225",
+    "nombre": "SET COCINA X20 PIEZAS MEDIANO SJ-238",
+    "categoria": "BAZAR",
+    "costo": "23900.00",
+    "precio": "45000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10226",
+    "nombre": "PLUMONES X12 DOBLE PUNTA",
+    "categoria": "ESCOLAR",
+    "costo": "2000.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10227",
+    "nombre": "PROYECTOR DE LUCES ASTRONAUTA",
+    "categoria": "ELECTRO",
+    "costo": "18580.00",
+    "precio": "37000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10228",
+    "nombre": "BOTELLA TEÌRMICA SPORT BICOLOR MZSM 1000ML",
+    "categoria": "BAZAR",
+    "costo": "10200.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10229",
+    "nombre": "MOCHILA DAMA ESTAMPADA C/POMPOÌN 3 CIERRES Q-177",
+    "categoria": "ESCOLAR",
+    "costo": "7300.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10230",
+    "nombre": "PITURRO SIMIL STANLEY C/SORBETE PLAÌSTICO 2000ML",
+    "categoria": "BAZAR",
+    "costo": "20380.00",
+    "precio": "39000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10231",
+    "nombre": "LAPICERAS MULTICOLOR KUROMI, SANRIO, KITTY, ETC X6u",
+    "categoria": "ESCOLAR",
+    "costo": "1450.00",
+    "precio": "3500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10232",
+    "nombre": "PEINE CEPILLO SECADOR PARA CABELLO \"\"NOVA\"\"",
+    "categoria": "BAZAR",
+    "costo": "7980.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10233",
+    "nombre": "MOCHILA JUVENIL ESTAMPADA",
+    "categoria": "ESCOLAR",
+    "costo": "10000.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10234",
+    "nombre": "VASO TEÌRMICO AMSZM \"\"HAVE A NICE DAY\"\" 600ML",
+    "categoria": "BAZAR",
+    "costo": "9150.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10235",
+    "nombre": "MOCHILA BICOLOR IMPERMEABLE T-426",
+    "categoria": "ESCOLAR",
+    "costo": "9300.00",
+    "precio": "24000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10236",
+    "nombre": "VASO QUENCHER C/BRILLO 900ML TAPA NEGRA",
+    "categoria": "BAZAR",
+    "costo": "9850.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10237",
+    "nombre": "MOCHILA DAMA TIPO PUFFER METALIZADA",
+    "categoria": "ESCOLAR",
+    "costo": "9700.00",
+    "precio": "24000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10238",
+    "nombre": "LONCHERA TEÌRMICA \"\"BRIVILAS\"\" C/BOLSILLO RED",
+    "categoria": "BAZAR",
+    "costo": "5450.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10239",
+    "nombre": "PELUCHE ALMOHADA HUELLITA PATITA DE GATO",
+    "categoria": "BLANCOS",
+    "costo": "11620.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10240",
+    "nombre": "BILLETERA DAMA TRICOLOR VERTICAL 2 CIERRES",
+    "categoria": "OTROS",
+    "costo": "3700.00",
+    "precio": "7500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10241",
+    "nombre": "BILLETERA DAMA MEDIANA GATITO CON BROCHE",
+    "categoria": "OTROS",
+    "costo": "2500.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10242",
+    "nombre": "PELUCHE KUROMI, KITTY, SANRIO, ETC CAMINA E IMITA",
+    "categoria": "JUGUETERIA",
+    "costo": "9500.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10243",
+    "nombre": "ESTUCHE CON CUBIERTOS KUROMI, KITTY, SANRIO, ETC",
+    "categoria": "BAZAR",
+    "costo": "3650.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10244",
+    "nombre": "BILLETERA DAMA TEXTURADA TRENZA LISA 2 CIERRES",
+    "categoria": "OTROS",
+    "costo": "3600.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10245",
+    "nombre": "BILLETERA DAMA TRICOLOR HORIZONTAL 2 CIERRES",
+    "categoria": "OTROS",
+    "costo": "3700.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10246",
+    "nombre": "VINCHA KAWAI SKINCARE CON MONÌO X6u DISENÌO PUNTOS",
+    "categoria": "JUGUETERIA",
+    "costo": "1000.00",
+    "precio": "3500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10247",
+    "nombre": "CARTERA SIMIL CUERO ESTAMPADA \"\"YIDIHYUAN\"\" BICOLOR",
+    "categoria": "INDUMENTARIA",
+    "costo": "12200.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10248",
+    "nombre": "LONCHERA TEÌRMICA ESTAMPADA",
+    "categoria": "BAZAR",
+    "costo": "2720.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10249",
+    "nombre": "LONCHERA TEÌRMICA \"\"LUNCH BAG DELICIOUS\"\"",
+    "categoria": "BAZAR",
+    "costo": "2500.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10250",
+    "nombre": "DISPENSADOR DE PERFUME RECARGABLE",
+    "categoria": "BAZAR",
+    "costo": "1110.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10251",
+    "nombre": "ALFOMBRA DE GOMA ESTAMPADA",
+    "categoria": "BLANCOS",
+    "costo": "2100.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10252",
+    "nombre": "CORREA CON PECHERA LISA PARA PERRO",
+    "categoria": "OTROS",
+    "costo": "3850.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10253",
+    "nombre": "KIT DE BROCHAS X5 PIEZAS",
+    "categoria": "ESCOLAR",
+    "costo": "1100.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10254",
+    "nombre": "JUEGO DE CARTAS CON DADOS \"\"VEGAS STILE\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "1050.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10255",
+    "nombre": "JUEGO MAGNEÌTICO DIDAÌCTICO X64 PCS",
+    "categoria": "JUGUETERIA",
+    "costo": "14150.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10256",
+    "nombre": "PELUCHE LLAMITA DE COLORES",
+    "categoria": "JUGUETERIA",
+    "costo": "5100.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10257",
+    "nombre": "BALANZA GRAMERA DE COCINA",
+    "categoria": "BAZAR",
+    "costo": "4920.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10258",
+    "nombre": "BANDOLERA CHICA DAMA C/ 3 COMPARTIMENTOS",
+    "categoria": "BAZAR",
+    "costo": "5260.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10259",
+    "nombre": "CARTERA DAMA CORDEROY CON TIRA Y CIERRE",
+    "categoria": "OTROS",
+    "costo": "6500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10260",
+    "nombre": "BILLETERA DAMA DISENÌO MANDALAS 1 CIERRE",
+    "categoria": "OTROS",
+    "costo": "3700.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10261",
+    "nombre": "PEPPA PIG FAMILIA X6 PCS",
+    "categoria": "JUGUETERIA",
+    "costo": "4650.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10262",
+    "nombre": "MUNÌECA HADA VOLADORA",
+    "categoria": "JUGUETERIA",
+    "costo": "5550.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10263",
+    "nombre": "TAZA CERAÌMICA CON DEDICATORIA CON TAPA ESPEJO",
+    "categoria": "BAZAR",
+    "costo": "4120.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10264",
+    "nombre": "CARTUCHERA MARCAS",
+    "categoria": "ESCOLAR",
+    "costo": "2400.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10265",
+    "nombre": "PITURRO MORLAN SIMIL STANLEY C/MATE 2,5L",
+    "categoria": "BAZAR",
+    "costo": "26330.00",
+    "precio": "50000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10266",
+    "nombre": "LAÌMPARA DE LUCES DIAMANTE C/USB",
+    "categoria": "ELECTRO",
+    "costo": "5820.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10267",
+    "nombre": "TENDER 3 PISOS",
+    "categoria": "OTROS",
+    "costo": "29800.00",
+    "precio": "60000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10268",
+    "nombre": "JUEGO DE AJEDREZ PEQUENÌO 3 EN 1",
+    "categoria": "JUGUETERIA",
+    "costo": "2080.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10269",
+    "nombre": "TERMO EJECUTIVO CON 3 TAZAS",
+    "categoria": "BAZAR",
+    "costo": "5900.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10270",
+    "nombre": "MASCOTA EN TRANSPORTADORA \"\"PLUSH PET\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "13900.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10271",
+    "nombre": "MINI PLANCHITA PORTAÌTIL",
+    "categoria": "ELECTRO",
+    "costo": "3100.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10272",
+    "nombre": "PLUMONES X80 DOBLE PUNTA",
+    "categoria": "ESCOLAR",
+    "costo": "13250.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10273",
+    "nombre": "TERMO KALPANA-ELEGANT MEDIA MANIJA 1000ML",
+    "categoria": "BAZAR",
+    "costo": "10200.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10274",
+    "nombre": "BLISTER COCINA X8 PCS",
+    "categoria": "JUGUETERIA",
+    "costo": "2600.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10275",
+    "nombre": "JUEGO DE AJEDREZ CLASSIC 3 EN 1",
+    "categoria": "JUGUETERIA",
+    "costo": "3450.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10276",
+    "nombre": "AUTITO FURGOÌN X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10277",
+    "nombre": "AVIONCITOS VARIOS COLORES X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10278",
+    "nombre": "HELICOÌPTEROS X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10279",
+    "nombre": "COLECTIVOS X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10280",
+    "nombre": "AUTITOS FORMULA 1 X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10281",
+    "nombre": "AVIONCITOS BLANCOS X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10282",
+    "nombre": "MUNÌECA HADA SIRENA",
+    "categoria": "JUGUETERIA",
+    "costo": "1100.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10283",
+    "nombre": "AUTITOS RACES Y MONSTERS X12U",
+    "categoria": "JUGUETERIA",
+    "costo": "300.00",
+    "precio": "750.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10284",
+    "nombre": "AUTO CONTROL REMOTO AVENGERS CON LUCES",
+    "categoria": "JUGUETERIA",
+    "costo": "10300.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10285",
+    "nombre": "TERMO 1000ML \"\"FASHION\"\" C/COLADOR Y TIRA",
+    "categoria": "BAZAR",
+    "costo": "8750.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10286",
+    "nombre": "PROYECTOR UNICORNIO PORTALAÌPICES",
+    "categoria": "JUGUETERIA",
+    "costo": "11600.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10287",
+    "nombre": "JUEGO DE AJEDREZ MEDIANO 2 EN 1",
+    "categoria": "JUGUETERIA",
+    "costo": "2580.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10288",
+    "nombre": "SET PARA HACER PULSERAS \"\"MINI CAJITA DE ENSUENÌO\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "3200.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10289",
+    "nombre": "PIZARRA MAÌGICA 12'' TIPO TABLET",
+    "categoria": "JUGUETERIA",
+    "costo": "3700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10290",
+    "nombre": "LONCHERA TEÌRMICA LISA GRANDE C/BOLSILLO DE RED",
+    "categoria": "BAZAR",
+    "costo": "6100.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10291",
+    "nombre": "SET DE ARTE X168 PIEZAS",
+    "categoria": "ESCOLAR",
+    "costo": "7200.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10292",
+    "nombre": "MALETA ARTIÌSTICA INFANTIL",
+    "categoria": "ESCOLAR",
+    "costo": "20800.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10293",
+    "nombre": "COCHE MUNÌECA (NUEVO)",
+    "categoria": "JUGUETERIA",
+    "costo": "3950.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10294",
+    "nombre": "MOCHILA HOMBRE C/CABLE USB",
+    "categoria": "ESCOLAR",
+    "costo": "20600.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10295",
+    "nombre": "PROYECTOR DINO C/APOYADOR",
+    "categoria": "JUGUETERIA",
+    "costo": "14000.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10296",
+    "nombre": "TAZA MEZCLADORA 380ML",
+    "categoria": "BAZAR",
+    "costo": "12150.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10297",
+    "nombre": "PROYECTOR UNICORNIO C/MANIJA Y MESITA",
+    "categoria": "JUGUETERIA",
+    "costo": "13300.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10298",
+    "nombre": "PROYECTOR GRANDE DINO Y UNICORNIO C/MESITA",
+    "categoria": "JUGUETERIA",
+    "costo": "25800.00",
+    "precio": "50000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10299",
+    "nombre": "DINO PROYECTOR LAPICERO",
+    "categoria": "JUGUETERIA",
+    "costo": "11700.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10300",
+    "nombre": "VASO TEÌRMICO COFFE CAKA 380ML",
+    "categoria": "BAZAR",
+    "costo": "6000.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10301",
+    "nombre": "PLANCHA CUBO RUBIK X20 U",
+    "categoria": "JUGUETERIA",
+    "costo": "3550.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10302",
+    "nombre": "BOTELLA TEÌRMICA \"\"YOUTH SPORTS\"\"",
+    "categoria": "BAZAR",
+    "costo": "11740.00",
+    "precio": "24000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10303",
+    "nombre": "VASO TEÌRMICO SIMIL STANLEY C/ABRIDOR",
+    "categoria": "BAZAR",
+    "costo": "6730.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10304",
+    "nombre": "JENGA DE MADERA",
+    "categoria": "JUGUETERIA",
+    "costo": "1450.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10305",
+    "nombre": "SET CAMIOÌN X4",
+    "categoria": "JUGUETERIA",
+    "costo": "3480.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10306",
+    "nombre": "SET AUTOS AVENGERS",
+    "categoria": "JUGUETERIA",
+    "costo": "2980.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10307",
+    "nombre": "PELUCHE GARFIELD",
+    "categoria": "JUGUETERIA",
+    "costo": "8900.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10308",
+    "nombre": "MALETIÌN COJIN CON MANTA",
+    "categoria": "JUGUETERIA",
+    "costo": "11920.00",
+    "precio": "24000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10309",
+    "nombre": "PULSERA MUNÌEQUERA CAPIBARA",
+    "categoria": "JUGUETERIA",
+    "costo": "10500.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10310",
+    "nombre": "PELUCHE GATO LUCIFER",
+    "categoria": "JUGUETERIA",
+    "costo": "14700.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10311",
+    "nombre": "MUÃECO \"\"SONNY ANGELS LABUBU\"\" X12u P/CELULAR",
+    "categoria": "OTROS",
+    "costo": "695.00",
+    "precio": "2000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10312",
+    "nombre": "MUÃECO LABUBU SORPRESA X6u",
+    "categoria": "JUGUETERIA",
+    "costo": "1000.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10313",
+    "nombre": "PIANO SANRIO/KUROMI Y STICH",
+    "categoria": "JUGUETERIA",
+    "costo": "3500.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10314",
+    "nombre": "TERMO KAWAI FRIENDS C/MUÃECO ARRIBA C/CORREA, PICO Y FUNDA",
+    "categoria": "BAZAR",
+    "costo": "7650.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10315",
+    "nombre": "AUTOS AVENGERS X8",
+    "categoria": "JUGUETERIA",
+    "costo": "3050.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10316",
+    "nombre": "PORTACOSMÃTICOS NECESER KAWAI FORMA CASITA \"\"LUCKY\"\"",
+    "categoria": "BAZAR",
+    "costo": "5980.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10317",
+    "nombre": "PORTACOSMÃTICOS NECESER KAWAI RECTANGULAR C/MANIJA",
+    "categoria": "BAZAR",
+    "costo": "4800.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10318",
+    "nombre": "MEDIAS TÃRMICAS VS COLORES X12u",
+    "categoria": "INDUMENTARIA",
+    "costo": "525.00",
+    "precio": "1500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10319",
+    "nombre": "VASO TÃRMICO LABUBU COFFEE 530ML",
+    "categoria": "BAZAR",
+    "costo": "5990.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10320",
+    "nombre": "BOTELLA TÃRMICA SIMIL STANLEY C/AGARRE 1000ML",
+    "categoria": "BAZAR",
+    "costo": "8100.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10321",
+    "nombre": "BOTELLA TÃRMICA OSITO C/MUÃECO EN CÃPSULA",
+    "categoria": "BAZAR",
+    "costo": "6930.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10322",
+    "nombre": "PELUCHE MANTA ESTAMPADA LABUBU ACOSTADO",
+    "categoria": "JUGUETERIA",
+    "costo": "16400.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10323",
+    "nombre": "GORRO PARA DUCHA BEBÃ + CEPILLO",
+    "categoria": "",
+    "costo": "3500.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10324",
+    "nombre": "LIBRETAS KAWAI 3D A7 HOJAS RAYADAS. CAJA X24u",
+    "categoria": "ESCOLAR",
+    "costo": "1250.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10325",
+    "nombre": "PELUCHE MANTA LABUBU C/PAÃUELO",
+    "categoria": "JUGUETERIA",
+    "costo": "16650.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10326",
+    "nombre": "VASO QUENCHER LABUBU SIN MANIJA DOBLE PICO 900ML",
+    "categoria": "BAZAR",
+    "costo": "7100.00",
+    "precio": "18500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10327",
+    "nombre": "JUEGO DE MESA MONKEY LOCO. MEDIANO",
+    "categoria": "JUGUETERIA",
+    "costo": "4450.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10328",
+    "nombre": "PELUCHE STICH CON MOCHILA FRUTA",
+    "categoria": "JUGUETERIA",
+    "costo": "7250.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10329",
+    "nombre": "PISTOLA METRALLETA \"\"AK47\"\" LANZA BALINES DE HIDROGEL Y DARDOS",
+    "categoria": "JUGUETERIA",
+    "costo": "14000.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10330",
+    "nombre": "TERMO SIMIL STANLEY TAPA MATE C/BOMBILLA \"\"YUMI\"\"",
+    "categoria": "BAZAR",
+    "costo": "13500.00",
+    "precio": "32000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10331",
+    "nombre": "OLLA DE VIDRIO C/TAPA OSITO \"\"COLOR MIEL\"\"",
+    "categoria": "BAZAR",
+    "costo": "7100.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10332",
+    "nombre": "SET ORGANIZADORES CANASTOS X4 PIEZAS",
+    "categoria": "OTROS",
+    "costo": "10300.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10333",
+    "nombre": "MUÃEQUERA CAPIBARA DOBLE AGARRE, 3 COLORES",
+    "categoria": "JUGUETERIA",
+    "costo": "2400.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10334",
+    "nombre": "LONCHERA TÃRMICA C/CUCHARA. RECTANGULAR \"\"LUNCH BOX\"\"",
+    "categoria": "BAZAR",
+    "costo": "4400.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10335",
+    "nombre": "PELUCHE CAPIBARA QUE CAMINA, C/GORRITO ANIMALES",
+    "categoria": "JUGUETERIA",
+    "costo": "4500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10336",
+    "nombre": "PELUCHE PERRITO QUE CAMINA. COLORES",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10337",
+    "nombre": "PELUCHE PERRITO QUE CAMINA. BLANCOS C/OREJAS COLOR",
+    "categoria": "JUGUETERIA",
+    "costo": "3100.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10338",
+    "nombre": "OLLA DE VIDRIO C/TAPA OSITO \"\"TRANSPARENTE\"\"",
+    "categoria": "BAZAR",
+    "costo": "7100.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10339",
+    "nombre": "VASO TÃRMICO SIMIL STANLEY C/AGARRE DOBLE PICO 900ML",
+    "categoria": "BAZAR",
+    "costo": "9850.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10340",
+    "nombre": "VASO TÃRMICO SIMIL STANLEY DIGITAL UNICOLOR",
+    "categoria": "BAZAR",
+    "costo": "6800.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10341",
+    "nombre": "BOTELLA TÃRMICA CHARLY BICOLOL C/STICKERS Y AGARRE",
+    "categoria": "BAZAR",
+    "costo": "7950.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10342",
+    "nombre": "BOTELLA TÃRMICA STICH, SANRIO, KITTY, KUROMI 450ML",
+    "categoria": "BAZAR",
+    "costo": "6950.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10343",
+    "nombre": "MOCHILA SET SOLDADITOS",
+    "categoria": "JUGUETERIA",
+    "costo": "3050.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10344",
+    "nombre": "TORRES DE ANILLOS CAPIBARA, DIDÃCTICO",
+    "categoria": "JUGUETERIA",
+    "costo": "1700.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10345",
+    "nombre": "BOTELLA TÃRMICA RENO C/TAPA TAZA + FUNDA Y CORREA",
+    "categoria": "BAZAR",
+    "costo": "7800.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10346",
+    "nombre": "PELUCHE CAPIBARA QUE CAMINA C/MOCHILA TORTUGA",
+    "categoria": "JUGUETERIA",
+    "costo": "4500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10347",
+    "nombre": "BOTELLA TÃRMICA \"\"GO\"\" SPORT BICOLOR C/AGARRE 680ML",
+    "categoria": "BAZAR",
+    "costo": "8050.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10348",
+    "nombre": "LÃMPARA CAPIBARA FORMA VASO",
+    "categoria": "ELECTRO",
+    "costo": "3500.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10349",
+    "nombre": "ALFOMBRA CAPIBARA REDONDA GRANDE",
+    "categoria": "BLANCOS",
+    "costo": "5400.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10350",
+    "nombre": "VASO QUENCHER ICE CREAM \"\"BOTTLE\"\" 1300ML",
+    "categoria": "BAZAR",
+    "costo": "9500.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10351",
+    "nombre": "VASO TÃRMICO SIMIL STANLEY C/ MANIJA DOBLE PICO \"\"COPO\"\"",
+    "categoria": "BAZAR",
+    "costo": "8350.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10352",
+    "nombre": "LLAVERO PELUCHE BRIAN ROT ITALIANO \"\"TRALARERO Y TUNG TUNG SAHUR\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "3700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10353",
+    "nombre": "SET ESPECIEROS 2 NIVELES X7 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "21490.00",
+    "precio": "45000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10354",
+    "nombre": "SET TAZAS DE VIDRIO + PLATO X12 PIEZAS. \"\"cortas\"\"",
+    "categoria": "BAZAR",
+    "costo": "9750.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10355",
+    "nombre": "BOTELLA TÃRMICA TRICOLOR CON TAPA TIPO TAZA 800ML",
+    "categoria": "BAZAR",
+    "costo": "10550.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10356",
+    "nombre": "LLAVERO PELUCHE GATO \"\"LUCIFER\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "3700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10357",
+    "nombre": "PELOTA INFLABLE CARITAS CON OREJITAS X12u",
+    "categoria": "JUGUETERIA",
+    "costo": "920.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10358",
+    "nombre": "PELUCHE STICH ACOSTADO CON FLOR. PEQUEÃO 25CM",
+    "categoria": "JUGUETERIA",
+    "costo": "5550.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10359",
+    "nombre": "PELUCHE STICH PEQUEÃO, ROSA Y AZUL",
+    "categoria": "JUGUETERIA",
+    "costo": "4950.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10360",
+    "nombre": "PESCAMAGIC CAPIBARA BLISTER GRANDE",
+    "categoria": "JUGUETERIA",
+    "costo": "7650.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10361",
+    "nombre": "TERMO SIMIL STANLEY \"\"C/TEXTURA\"\" 1L C/TAPA MATE. \"\"CHARLY\"\"",
+    "categoria": "BAZAR",
+    "costo": "15850.00",
+    "precio": "32000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10362",
+    "nombre": "TOALLON STICH VS DISEÃOS",
+    "categoria": "BLANCOS",
+    "costo": "3160.00",
+    "precio": "11000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10363",
+    "nombre": "SET CUBIERTOS \"\"CHURRASCO\"\" X12 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "28850.00",
+    "precio": "50000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10364",
+    "nombre": "VASO QUENCHER SIMIL STANLEY C/TAPA BLANCA 1200ML",
+    "categoria": "BAZAR",
+    "costo": "10950.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10365",
+    "nombre": "VASO QUENCHER RANURADO CAPIBARA Y LABUBU C/STICKERS",
+    "categoria": "BAZAR",
+    "costo": "6999.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10366",
+    "nombre": "SET CAMIÃN AVENGERS + 2 AUTOS",
+    "categoria": "JUGUETERIA",
+    "costo": "3200.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10367",
+    "nombre": "SET AVENGERS, 2 PISTOLAS LANZA PELOTAS + MUÃECO",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10368",
+    "nombre": "PAVA ELÃCTRICA \"\"YUMI\"\" 2L",
+    "categoria": "BAZAR",
+    "costo": "8000.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10369",
+    "nombre": "PISTOLA M-16 LANZA DARDOS Y BALINES DE HIDROGEL C/ACCESORIOS",
+    "categoria": "JUGUETERIA",
+    "costo": "11400.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10370",
+    "nombre": "SET DE ESPECIEROS GIRATORIO X8 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "13100.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10371",
+    "nombre": "SET DE OLLAS + UTENSILIOS X13 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "16900.00",
+    "precio": "36000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10372",
+    "nombre": "RELOJ CAPIBARA CUADRADO",
+    "categoria": "ELECTRO",
+    "costo": "2700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10373",
+    "nombre": "RELOJ CAPIBARA RECTANGULAR",
+    "categoria": "ELECTRO",
+    "costo": "2800.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10374",
+    "nombre": "RELOJ DESPERTADOR CAPIBARA REDONDO",
+    "categoria": "ELECTRO",
+    "costo": "2700.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10375",
+    "nombre": "CUELLITO PARA VIAJE. LISOS",
+    "categoria": "BLANCOS",
+    "costo": "2450.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10376",
+    "nombre": "TERMO BALA \"\"CHARLY\"\" CON FUNDA Y COREEA 1000ML",
+    "categoria": "BAZAR",
+    "costo": "7500.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10377",
+    "nombre": "SET DE UTENSILLOS P/HORNEAR X6 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "15900.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10378",
+    "nombre": "LONCHERA \"\"AUTOBUS\"\" C/5 COMPATIMENTOS Y TENEDOR",
+    "categoria": "BAZAR",
+    "costo": "2650.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10379",
+    "nombre": "LONCHERA \"\"HIPOPÃTAMO\"\" C/COMPATIMENTOS Y TENEDOR",
+    "categoria": "BAZAR",
+    "costo": "2650.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10380",
+    "nombre": "SET DE ESPECIEROS X4 PIEZAS. C/ACEITERO",
+    "categoria": "BAZAR",
+    "costo": "4900.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10381",
+    "nombre": "OLLA VIDRIO COLOR MEL. TEXTURA ROMBO EN TAPA",
+    "categoria": "BAZAR",
+    "costo": "8700.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10382",
+    "nombre": "SET DE ESPECIEROS DE VIDRIO X5 PIEZAS. C/TAPA NEGRA Y CUCHARITAS",
+    "categoria": "BAZAR",
+    "costo": "5700.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10383",
+    "nombre": "LONCHERA FORMA BÃHO C/4 COMPATIMENTOS + TENEDOR",
+    "categoria": "BAZAR",
+    "costo": "2400.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10384",
+    "nombre": "SALTARÃN JIRAFA. INFLABLE",
+    "categoria": "JUGUETERIA",
+    "costo": "9300.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10385",
+    "nombre": "VASO QUENCHER SIMIL STANLEY MARMOLADO-PINCELADO 900ML",
+    "categoria": "BAZAR",
+    "costo": "8900.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10386",
+    "nombre": "SALTARÃN CAPIBARA C/LUZ Y SONIDO",
+    "categoria": "JUGUETERIA",
+    "costo": "13900.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10387",
+    "nombre": "SALTARÃN PERRITO. INFLABLE",
+    "categoria": "JUGUETERIA",
+    "costo": "9500.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10388",
+    "nombre": "PINZA DE COCINA. GRANDE",
+    "categoria": "BAZAR",
+    "costo": "1980.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10389",
+    "nombre": "SET UTENSILLOS COCINA X5 PIEZAS. \"\"C/ PINCEL\"\" .SILICONA Y METAL",
+    "categoria": "BAZAR",
+    "costo": "5980.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10390",
+    "nombre": "SET ESPÃTULAS X4 PIEZAS. SILICONA C/MANGO MADERA",
+    "categoria": "BAZAR",
+    "costo": "4160.00",
+    "precio": "11000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10391",
+    "nombre": "MUÃECA \"\"MAY MAY GIRLS\"\" C/SONIDO. C/ZAPATILAS O BOTITAS",
+    "categoria": "JUGUETERIA",
+    "costo": "21650.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10392",
+    "nombre": "SALTARÃN CABALLO C/MARIPOSAS. INFABLE",
+    "categoria": "JUGUETERIA",
+    "costo": "7400.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10393",
+    "nombre": "JUEGO DE MESA \"\"BARCO DE PIRATAS\"\" DE BALANCE",
+    "categoria": "JUGUETERIA",
+    "costo": "8350.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10394",
+    "nombre": "SILLA REPOSERA PLEGABLE",
+    "categoria": "OTROS",
+    "costo": "12700.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10395",
+    "nombre": "BOTELLA MOTIVACIONAL 3 EN 1 TRICOLOR C/STICKERS",
+    "categoria": "BAZAR",
+    "costo": "6490.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10396",
+    "nombre": "PISTOLA DE AGUA ELÃCTRICA C/LUZ \"\"FUEGO\"\". RECARGABLE Y AUTOMÃTICA",
+    "categoria": "JUGUETERIA",
+    "costo": "12900.00",
+    "precio": "28000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10397",
+    "nombre": "BILLETERA HOMBRE \"\"MARMOLADO\"\" BAIDE EN CAJA",
+    "categoria": "INDUMENTARIA",
+    "costo": "3860.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10398",
+    "nombre": "JUEGO DE MESA \"\"BASTA ELECTRÃNICO 3.0\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "12100.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10399",
+    "nombre": "COPA TÃRMICA DESMONTABLE 2 EN 1 \"\"METALIZADAS\"\"",
+    "categoria": "BAZAR",
+    "costo": "6350.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10400",
+    "nombre": "SET DE RECIPIENTES VIDRIO C/RELIEVE X6 PIEZAS. P/ALMACENAR",
+    "categoria": "BAZAR",
+    "costo": "12100.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10401",
+    "nombre": "JUEGO DE MESA AJEDREZ DE GEOMETRÃA",
+    "categoria": "JUGUETERIA",
+    "costo": "4860.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10402",
+    "nombre": "TAZA VIDRIO DOBLE PARED FLORES C/CUCHARA",
+    "categoria": "BAZAR",
+    "costo": "3400.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10403",
+    "nombre": "INDIVIDUALES DISEÃO RELIEVE METALIZADO X12u",
+    "categoria": "BAZAR",
+    "costo": "1250.00",
+    "precio": "3000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10404",
+    "nombre": "SET ESPECIEROS X18 PIEZAS CON ESTANTE GIRATORIO",
+    "categoria": "BAZAR",
+    "costo": "17200.00",
+    "precio": "36000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10405",
+    "nombre": "SET ESPECIEROS VERTICAL X8 PIEZAS. DE VIDRIO. TAPA PLAT Y DOR",
+    "categoria": "BAZAR",
+    "costo": "10350.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10406",
+    "nombre": "CAFETERA/TETERA DE VIDRIO 1000ML CON ÃMBOLO \"\"FRENCH PRESS\"\"",
+    "categoria": "BAZAR",
+    "costo": "5900.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10407",
+    "nombre": "CAFETERA/TETERA DE VIDRIO 800ML CON ÃMBOLO \"\"FRENCH PRESS\"\"",
+    "categoria": "BAZAR",
+    "costo": "5200.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10408",
+    "nombre": "MALETÃN PORTACOSMÃTICO CAPIBARA C/ESPEJO",
+    "categoria": "OTROS",
+    "costo": "8600.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10409",
+    "nombre": "SET FUENTES DE VIDRIO \"\"OVALADAS\"\" X3 PIEZAS. 3 TAMAÃOS",
+    "categoria": "BAZAR",
+    "costo": "10900.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10410",
+    "nombre": "SET DE TUPPERS/VIANDAS \"\"PASTELES\"\" X3 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "3200.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10411",
+    "nombre": "PLANCHA MÃQUINA DE AFEITAR X24u",
+    "categoria": "OTROS",
+    "costo": "5300.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10412",
+    "nombre": "SET TUPPERS \"\"REDONDOS\"\" X6 PIEZAS. VARIOS TAMAÃOS",
+    "categoria": "BAZAR",
+    "costo": "6350.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10413",
+    "nombre": "SET FUENTES DE VIDRIO X3 PIEZAS C/TAPAS",
+    "categoria": "BAZAR",
+    "costo": "9990.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10414",
+    "nombre": "SET BOWLS DE VIDRIO X5 PIEZAS C/TAPAS",
+    "categoria": "BAZAR",
+    "costo": "12300.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10415",
+    "nombre": "OLA/FUENTE DE VIDRIO C/TAPA. APTA HORNO.1500ML",
+    "categoria": "BAZAR",
+    "costo": "5300.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10416",
+    "nombre": "OLLA DE VIDRIO COLOR MIEL 1200ML \"\"HEXAGONAL\"\"",
+    "categoria": "BAZAR",
+    "costo": "5100.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10417",
+    "nombre": "MUÃECA BARBIE CON MOTO FUSCIA. C/ACCESORIOS Y MASCOTA",
+    "categoria": "JUGUETERIA",
+    "costo": "9300.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10419",
+    "nombre": "BANDEJA/TABLA DE MDF C/CUCHILLO. MULTIFUNCIÃN. SIN MANGO",
+    "categoria": "BAZAR",
+    "costo": "2980.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10420",
+    "nombre": "SET ESPECIEROS VERTICAL X8 PIEZAS. DE VIDRIO. BLANCO Y NEGRO",
+    "categoria": "BAZAR",
+    "costo": "10850.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10421",
+    "nombre": "OLLA ELÃCTRICA \"\"JIN WEI SHUN\"\" C/TAPA DE VIDRIO",
+    "categoria": "BAZAR",
+    "costo": "10400.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10422",
+    "nombre": "VASO QUENCHER C/GLITTER Y SORBETE 1200ML . \"\"YUMI\"\"",
+    "categoria": "BAZAR",
+    "costo": "9450.00",
+    "precio": "24000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10423",
+    "nombre": "SET LONCHERA TÃRMICA + 2 VIANDAS/TUPPERS DE VIDRIO",
+    "categoria": "BAZAR",
+    "costo": "11600.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10424",
+    "nombre": "VASO TÃRMICO BICOLOR C/AGARRE ARRIBA. DOBLE PICO 1200ML",
+    "categoria": "BAZAR",
+    "costo": "8990.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10425",
+    "nombre": "JUEGO DE MESA \"\"BASTA ELECTRÃNICO 2.0\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "8950.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10426",
+    "nombre": "MINI WAFLERA C/ANTIADHERENTE. 3 COLORES",
+    "categoria": "BAZAR",
+    "costo": "10500.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10427",
+    "nombre": "OLLA ELÃCTRICA \"\"YUEERDE\"\" C/ANTIADHERENTE. 1,5L",
+    "categoria": "BAZAR",
+    "costo": "9850.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10428",
+    "nombre": "MOCHILA TÃRMICA GRANDE 20L. 2 CIERRES",
+    "categoria": "BAZAR",
+    "costo": "10950.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10429",
+    "nombre": "SET ESFERAS NAVIDEÃAS X6 PIEZAS 8CM DIÃMETRO",
+    "categoria": "OTROS",
+    "costo": "2400.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10430",
+    "nombre": "MESA PLEGABLE DE METAL (54CM) C/FUNDA",
+    "categoria": "OTROS",
+    "costo": "14450.00",
+    "precio": "32000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10431",
+    "nombre": "MESA PLEGABLE DE METAL (95CM) CON FUNDA",
+    "categoria": "OTROS",
+    "costo": "21250.00",
+    "precio": "45000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10432",
+    "nombre": "JUEGO DE MESA \"\"BASTA ELÃCTRICO 2.0\"\". TABLERO AZUL",
+    "categoria": "JUGUETERIA",
+    "costo": "7950.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10433",
+    "nombre": "BOTELLA TÃRMICA BRIANROT ITALIANO \"\"TRALALERO TRALALA\"\" FORMA LATA",
+    "categoria": "BAZAR",
+    "costo": "6950.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10434",
+    "nombre": "VASO QUENCHER SIMIL STANLEY MARMOLADO 1200ML",
+    "categoria": "BAZAR",
+    "costo": "10500.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10435",
+    "nombre": "BOTELLA TÃRMICA BRIAN ROT ITALIANO \"\"TRALALERO TRALALA\"\" 500ML",
+    "categoria": "BAZAR",
+    "costo": "4050.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10436",
+    "nombre": "SET DE BAÃO DE CERÃMICA X4 PIEZAS",
+    "categoria": "BLANCOS",
+    "costo": "9900.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10437",
+    "nombre": "SET TUPPERS \"\"RECTANGULAR\"\" X4 PIEZAS. PEQUEÃO",
+    "categoria": "BAZAR",
+    "costo": "1600.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10438",
+    "nombre": "CUBETERA SILICONA FORMA \"\"BESOS\"\" X10 HIELOS",
+    "categoria": "BAZAR",
+    "costo": "1700.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10439",
+    "nombre": "VASO TIPO QUENCHER DE VIDRIO C/SORBETE DE VIDIO",
+    "categoria": "BAZAR",
+    "costo": "2990.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10440",
+    "nombre": "MÃQUINA DE AFEITAR ELÃCTRICA 2 EN 1",
+    "categoria": "ELECTRO",
+    "costo": "7800.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10441",
+    "nombre": "SET REPOSTERÃA NAVIDEÃO X3 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "4450.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10442",
+    "nombre": "SET DE BOWLS ENSALADERA X7 PIEZAS CON TAPAS",
+    "categoria": "BAZAR",
+    "costo": "24950.00",
+    "precio": "50000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10443",
+    "nombre": "LONCHERA VIANDA TÃRMICA X3 PIEZAS CON BOLSO TÃRMICO",
+    "categoria": "BAZAR",
+    "costo": "14290.00",
+    "precio": "31000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10444",
+    "nombre": "PELUCHE STICH DE APEGO C/RESPIRACIÃN. MUSICAL Y C/LUZ",
+    "categoria": "JUGUETERIA",
+    "costo": "13950.00",
+    "precio": "30000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10445",
+    "nombre": "BEBOTA \"\"BABY MAY MAY\"\" C/CABELLO Y SONIDO",
+    "categoria": "JUGUETERIA",
+    "costo": "15150.00",
+    "precio": "33000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10446",
+    "nombre": "TRITURADORA DE VEGETALES X16 PIEZAS",
+    "categoria": "BAZAR",
+    "costo": "8750.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10447",
+    "nombre": "SET DE BAÃO X2 PIEZAS \"\"BAIN ROYAL\"\" DE CERÃMICA",
+    "categoria": "BLANCOS",
+    "costo": "5600.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10448",
+    "nombre": "JUEGO DE CUBIERTOS Y PLATOS DORADOS X12 PIEZAS C/ESTUCHE",
+    "categoria": "BAZAR",
+    "costo": "16100.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10449",
+    "nombre": "DISPENSER DE VIDRIO C/TAPA Y RELIEVE",
+    "categoria": "BAZAR",
+    "costo": "21700.00",
+    "precio": "45000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10450",
+    "nombre": "Auricular BT p47",
+    "categoria": "ELECTRO",
+    "costo": "3900.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10451",
+    "nombre": "Estaca solar metal X10 psc",
+    "categoria": "ELECTRO",
+    "costo": "2600.00",
+    "precio": "7000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10452",
+    "nombre": "Laser verde recargable",
+    "categoria": "ELECTRO",
+    "costo": "7500.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10453",
+    "nombre": "Luz led alambre tipo corcho",
+    "categoria": "ELECTRO",
+    "costo": "800.00",
+    "precio": "2000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10454",
+    "nombre": "Parlante de 3 karaoke con luz",
+    "categoria": "ELECTRO",
+    "costo": "6900.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10455",
+    "nombre": "Piano juguete c/microfono",
+    "categoria": "ELECTRO",
+    "costo": "11900.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10456",
+    "nombre": "Anafe elÃ©ctrico 1 hornalla",
+    "categoria": "BAZAR",
+    "costo": "12200.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10457",
+    "nombre": "Anafe electrico 2 hornallas",
+    "categoria": "BAZAR",
+    "costo": "22900.00",
+    "precio": "46000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10458",
+    "nombre": "Auricular Bluetooth i12",
+    "categoria": "ELECTRO",
+    "costo": "4000.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10459",
+    "nombre": "Lapiz 3D",
+    "categoria": "ESCOLAR",
+    "costo": "10900.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10460",
+    "nombre": "Linterna llavero aluminio",
+    "categoria": "ELECTRO",
+    "costo": "1600.00",
+    "precio": "4000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10461",
+    "nombre": "Mochila transporte mascota trasparente",
+    "categoria": "OTROS",
+    "costo": "14500.00",
+    "precio": "31000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10462",
+    "nombre": "Proyector de estrellas chico",
+    "categoria": "ELECTRO",
+    "costo": "3200.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10463",
+    "nombre": "Auricular BT E6S C/Display",
+    "categoria": "ELECTRO",
+    "costo": "4200.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10464",
+    "nombre": "Auricular BT orejas gatito",
+    "categoria": "",
+    "costo": "6500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10465",
+    "nombre": "Auricular vincha P9 Bluetooth",
+    "categoria": "",
+    "costo": "5900.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10466",
+    "nombre": "Cactus bailarin con acceosorios",
+    "categoria": "JUGUETERIA",
+    "costo": "6500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10467",
+    "nombre": "Depilador ceja 2 en 1 USB",
+    "categoria": "ELECTRO",
+    "costo": "4300.00",
+    "precio": "11000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10468",
+    "nombre": "Espejo LED cuadrado chico",
+    "categoria": "ELECTRO",
+    "costo": "6500.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10469",
+    "nombre": "Espejo led USB",
+    "categoria": "ELECTRO",
+    "costo": "5200.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10470",
+    "nombre": "Linterna mini recargable zoom USB",
+    "categoria": "ELECTRO",
+    "costo": "2600.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10471",
+    "nombre": "Linterna solar en blister",
+    "categoria": "ELECTRO",
+    "costo": "1990.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10472",
+    "nombre": "Mouse y teclado bluetooth",
+    "categoria": "ELECTRO",
+    "costo": "9500.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10473",
+    "nombre": "Naipe poker dorado",
+    "categoria": "JUGUETERIA",
+    "costo": "1800.00",
+    "precio": "4000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10474",
+    "nombre": "Proyector de estrellas (Star Master)",
+    "categoria": "ELECTRO",
+    "costo": "5500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10475",
+    "nombre": "Tetris",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10476",
+    "nombre": "Consola SUP 400 en 1",
+    "categoria": "JUGUETERIA",
+    "costo": "8300.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10477",
+    "nombre": "Consola SUP 400 en 1 c/joystick",
+    "categoria": "JUGUETERIA",
+    "costo": "10900.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10478",
+    "nombre": "Humidificador madera conico",
+    "categoria": "ELECTRO",
+    "costo": "5900.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10479",
+    "nombre": "Humidificador madera esferico",
+    "categoria": "ELECTRO",
+    "costo": "5500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10480",
+    "nombre": "Microfono karaoke",
+    "categoria": "JUGUETERIA",
+    "costo": "5500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10481",
+    "nombre": "Mini camara infantil",
+    "categoria": "JUGUETERIA",
+    "costo": "10500.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10482",
+    "nombre": "Pizarra USB c/marcadores 30 x 20",
+    "categoria": "ESCOLAR",
+    "costo": "16500.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10483",
+    "nombre": "Parlante Charge Mini",
+    "categoria": "ELECTRO",
+    "costo": "8500.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10484",
+    "nombre": "Pelota FIFA",
+    "categoria": "JUGUETERIA",
+    "costo": "5500.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10485",
+    "nombre": "Popit electronico con formas",
+    "categoria": "JUGUETERIA",
+    "costo": "3000.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10486",
+    "nombre": "JUEGO CORTINAS MADRAS COLOR PESADA",
+    "categoria": "BLANCOS",
+    "costo": "12142.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10487",
+    "nombre": "Sabanas DyG King",
+    "categoria": "BLANCOS",
+    "costo": "19170.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10488",
+    "nombre": "MANTA-COLCHA ACANALADA CUADROS C/CORDERITO TWIN",
+    "categoria": "BLANCOS",
+    "costo": "10800.00",
+    "precio": "26000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10489",
+    "nombre": "Acolchado plumÃ³n Sherpa King",
+    "categoria": "BLANCOS",
+    "costo": "40000.00",
+    "precio": "75000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10490",
+    "nombre": "PELUCHE LABUBU SORPRESA",
+    "categoria": "BLANCOS",
+    "costo": "5000.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10491",
+    "nombre": "MANTA PLUSH TWIN",
+    "categoria": "BLANCOS",
+    "costo": "8000.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10492",
+    "nombre": "âNaipes EspaÃ±oles",
+    "categoria": "JUGUETERIA",
+    "costo": "1162.00",
+    "precio": "3500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10493",
+    "nombre": "Naipe UNO 144 piezas",
+    "categoria": "JUGUETERIA",
+    "costo": "2490.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10494",
+    "nombre": "Naipe Poker x2",
+    "categoria": "JUGUETERIA",
+    "costo": "1660.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10495",
+    "nombre": "Naipe Poker x2 con Dados",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "6500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10496",
+    "nombre": "Naipe poker con 24 fichas",
+    "categoria": "JUGUETERIA",
+    "costo": "2350.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10497",
+    "nombre": "Juego jenga con vasos de tragos",
+    "categoria": "",
+    "costo": "19750.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10498",
+    "nombre": "Jenga de colores 48 piezas",
+    "categoria": "",
+    "costo": "5150.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10499",
+    "nombre": "Juego Poker 100 fichas mas maso de cartas",
+    "categoria": "",
+    "costo": "13200.00",
+    "precio": "26000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10500",
+    "nombre": "Monopatin",
+    "categoria": "JUGUETERIA",
+    "costo": "10000.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10501",
+    "nombre": "Avion Planeador",
+    "categoria": "JUGUETERIA",
+    "costo": "2500.00",
+    "precio": "9000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10502",
+    "nombre": "Avion Planeador con pistola",
+    "categoria": "",
+    "costo": "3000.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10503",
+    "nombre": "Set taza con plato infantil",
+    "categoria": "BAZAR",
+    "costo": "6000.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10504",
+    "nombre": "Peluche con Manta",
+    "categoria": "JUGUETERIA",
+    "costo": "20000.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10505",
+    "nombre": "Manta para Bebe",
+    "categoria": "BLANCOS",
+    "costo": "4500.00",
+    "precio": "11000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10506",
+    "nombre": "Cortinas Blackout Engomadas Casatex",
+    "categoria": "",
+    "costo": "20000.00",
+    "precio": "43000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10507",
+    "nombre": "Toallon Hindu",
+    "categoria": "BLANCOS",
+    "costo": "5000.00",
+    "precio": "14000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10508",
+    "nombre": "Toallon Gigante Arcoiris",
+    "categoria": "BLANCOS",
+    "costo": "13000.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10509",
+    "nombre": "Juego toalla toallon teka 500 gr",
+    "categoria": "BLANCOS",
+    "costo": "8430.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10510",
+    "nombre": "Toallon Menuchas importados 70% algodon",
+    "categoria": "BLANCOS",
+    "costo": "3370.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10511",
+    "nombre": "Juego toalla toallon Palette Ascend 500gr",
+    "categoria": "BLANCOS",
+    "costo": "17000.00",
+    "precio": "36000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10512",
+    "nombre": "MUÃEQUERA LABUBU CON SONIDO",
+    "categoria": "JUGUETERIA",
+    "costo": "7000.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10513",
+    "nombre": "MUÃEQUERA LABUBU",
+    "categoria": "JUGUETERIA",
+    "costo": "5000.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10514",
+    "nombre": "LLAVERO LABUBU/CAPIBARA CON LUZ",
+    "categoria": "JUGUETERIA",
+    "costo": "2000.00",
+    "precio": "4000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10515",
+    "nombre": "ESPEJO LED CON AUMENTO",
+    "categoria": "OTROS",
+    "costo": "19000.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10516",
+    "nombre": "AUTO CONTROL REMOTO FAST SIMPLE",
+    "categoria": "JUGUETERIA",
+    "costo": "7000.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10517",
+    "nombre": "CUBO RUBIK",
+    "categoria": "JUGUETERIA",
+    "costo": "350.00",
+    "precio": "1500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10518",
+    "nombre": "PELUCHE CAPIBARA CHICO",
+    "categoria": "JUGUETERIA",
+    "costo": "4000.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10519",
+    "nombre": "PULSERA LABUBU DOBLE BRAZALETE",
+    "categoria": "JUGUETERIA",
+    "costo": "6000.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10520",
+    "nombre": "PONY CON ALAS A CUERDA",
+    "categoria": "JUGUETERIA",
+    "costo": "2100.00",
+    "precio": "6000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10521",
+    "nombre": "VASO CON BATIDOR A PILAS",
+    "categoria": "BAZAR",
+    "costo": "9000.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10522",
+    "nombre": "JUEGO MANTA MAS FUNDAS ALMOHADAS QUEEN",
+    "categoria": "BLANCOS",
+    "costo": "31000.00",
+    "precio": "55000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10523",
+    "nombre": "CANCAN CON PIEL",
+    "categoria": "INDUMENTARIA",
+    "costo": "12000.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10524",
+    "nombre": "PAVITA MAS TAZA CERAMICA",
+    "categoria": "BAZAR",
+    "costo": "11000.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10525",
+    "nombre": "TERMO 2L MAS VASO Y BOMBILLA",
+    "categoria": "BAZAR",
+    "costo": "21000.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10526",
+    "nombre": "SET TAZAS MAS PLATOS CERAMICA X6",
+    "categoria": "BAZAR",
+    "costo": "16000.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10527",
+    "nombre": "PAVA ELECTRICA VIDRIO",
+    "categoria": "ELECTRO",
+    "costo": "16000.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10528",
+    "nombre": "Cortinas Blackout engomada sorpresa",
+    "categoria": "",
+    "costo": "17550.00",
+    "precio": "40000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10529",
+    "nombre": "Cortinas Cortas Lisas",
+    "categoria": "BLANCOS",
+    "costo": "3412.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10530",
+    "nombre": "Cover ultrasÃ³nic reversible teka twin",
+    "categoria": "",
+    "costo": "12675.00",
+    "precio": "27000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10531",
+    "nombre": "Cover ultrasÃ³nic reversible teka full",
+    "categoria": "",
+    "costo": "16965.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10532",
+    "nombre": "Cover Reversible Twin",
+    "categoria": "",
+    "costo": "12598.00",
+    "precio": "28000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10533",
+    "nombre": "Cover Reversible Full",
+    "categoria": "",
+    "costo": "15790.00",
+    "precio": "34000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10534",
+    "nombre": "Reparador Corazon algodÃ³n importado",
+    "categoria": "BLANCOS",
+    "costo": "933.00",
+    "precio": "2500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10535",
+    "nombre": "Toalla visita jardinera",
+    "categoria": "BLANCOS",
+    "costo": "600.00",
+    "precio": "1800.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10536",
+    "nombre": "Cortina de baÃ±o Teflon",
+    "categoria": "",
+    "costo": "5990.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10537",
+    "nombre": "Cortina de baÃ±o importada",
+    "categoria": "",
+    "costo": "3422.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10538",
+    "nombre": "Toallon Palette Urban",
+    "categoria": "BLANCOS",
+    "costo": "9000.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10539",
+    "nombre": "JOYERO MEDIANO C/ESPEJO",
+    "categoria": "OTROS",
+    "costo": "13450.00",
+    "precio": "29000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10540",
+    "nombre": "MAQUILLAJE INFANTIL \"\"ZAPATO\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "4200.00",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10541",
+    "nombre": "MUÃECA FROZEN C/COCHE (LUZ Y SONIDO)",
+    "categoria": "JUGUETERIA",
+    "costo": "13900.00",
+    "precio": "28000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10542",
+    "nombre": "CAMIÃN GRANDE DE CARGA C/FRUTAS",
+    "categoria": "JUGUETERIA",
+    "costo": "9250.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10543",
+    "nombre": "MUÃECA \"\"BABY LOVELY\"\" C/MAMADERA",
+    "categoria": "JUGUETERIA",
+    "costo": "6200.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10544",
+    "nombre": "AUTO DIDÃCTICO CON BLOQUES",
+    "categoria": "JUGUETERIA",
+    "costo": "7500.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10545",
+    "nombre": "JUEGO \"\"NO DEJES QUE LA ARDILLA SE CAIGA\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "6100.00",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10546",
+    "nombre": "DINO CUELLO LARGO (PONE HUEVOS)",
+    "categoria": "JUGUETERIA",
+    "costo": "10400.00",
+    "precio": "24000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10547",
+    "nombre": "AUTO JEEP \"\"OFF-ROAD\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "2600.00",
+    "precio": "7500.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10548",
+    "nombre": "SAPITO BAILARÃN \"\"FROG DANCING\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "8480.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10549",
+    "nombre": "SET BOTELLA + 6 VASOS \"\"BREE KETLLE\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "9600.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10550",
+    "nombre": "ADORNOS NAVIDAD MADERA C/LUCES",
+    "categoria": "OTROS",
+    "costo": "1700.00",
+    "precio": "5000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10551",
+    "nombre": "ARCO DE FÃTBOL C/PELOTA",
+    "categoria": "JUGUETERIA",
+    "costo": "9100.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10552",
+    "nombre": "DINO CUELLO LARGO CON PLANTA",
+    "categoria": "JUGUETERIA",
+    "costo": "6600.00",
+    "precio": "16000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10553",
+    "nombre": "BEBOTE CON COCHE PARAGÃITA",
+    "categoria": "JUGUETERIA",
+    "costo": "6700.00",
+    "precio": "17000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10554",
+    "nombre": "TERMO 1400ML CON MATE 236ML",
+    "categoria": "BAZAR",
+    "costo": "16397.62",
+    "precio": "37000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10555",
+    "nombre": "BOTELLA DEPORTIVA CON PARLANTE CH-M834",
+    "categoria": "BAZAR",
+    "costo": "10818.67",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10556",
+    "nombre": "PELOTA N2",
+    "categoria": "JUGUETERIA",
+    "costo": "2471.51",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10557",
+    "nombre": "PELOTA DE FUTBOL N5",
+    "categoria": "JUGUETERIA",
+    "costo": "5517.63",
+    "precio": "15000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10558",
+    "nombre": "PARLANTE RUEDA BT/FM/USB CON LUZ",
+    "categoria": "ELECTRO",
+    "costo": "7911.01",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10559",
+    "nombre": "VASO TERMICO 900ML",
+    "categoria": "BAZAR",
+    "costo": "9565.61",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10560",
+    "nombre": "VASO CAFÃ ACERO INOX BLANCO/NEGRO TEMPERATURA",
+    "categoria": "BAZAR",
+    "costo": "7614.61",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10561",
+    "nombre": "VASO TERMICO DE CAFE 380ML",
+    "categoria": "BAZAR",
+    "costo": "4944.01",
+    "precio": "12000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10562",
+    "nombre": "CRAYONES DE CERA COLORES X 6U",
+    "categoria": "ESCOLAR",
+    "costo": "237.36",
+    "precio": "800.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10563",
+    "nombre": "Toalla y toallon menucha",
+    "categoria": "BLANCOS",
+    "costo": "8000.00",
+    "precio": "18000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10564",
+    "nombre": "Toalla y toallon campomayo",
+    "categoria": "BLANCOS",
+    "costo": "8500.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10565",
+    "nombre": "AUTO A CONTROL REMOTO AVENGERS C/LUCES",
+    "categoria": "JUGUETERIA",
+    "costo": "10300.00",
+    "precio": "23000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10566",
+    "nombre": "BEBOTE C/SONIDO, CHUPETE Y GORRITO \"\"BABY GIFTS FOR CHILDREN\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "4300.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10567",
+    "nombre": "MUÃECA BARBIE \"\"VOGUE\"\" SALÃN DE BELLEZA C/SONIDO Y LUZ",
+    "categoria": "JUGUETERIA",
+    "costo": "7920.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10568",
+    "nombre": "BEBOTE C/DISFRAZ ANIMALES. DE GOMA C/SONIDO \"\"MI BOMBONCITO\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "17450.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10569",
+    "nombre": "MUÃECA BARBIE C/MASCOTA Y ACCESORIOS \"\"CUTE PET\"\"",
+    "categoria": "JUGUETERIA",
+    "costo": "8600.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10570",
+    "nombre": "MUÃECA BARBIE CON BICICLETA C/ACCESORIOS",
+    "categoria": "JUGUETERIA",
+    "costo": "7650.00",
+    "precio": "19000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10571",
+    "nombre": "MUÃECA BARBIE ARTICULADA CAJA TRANSP",
+    "categoria": "JUGUETERIA",
+    "costo": "2400.00",
+    "precio": "8000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10572",
+    "nombre": "BOTELLA SÃMIL STANLEY BICOLOR CON GLITTER Y AGARRE",
+    "categoria": "",
+    "costo": "8500.00",
+    "precio": "20000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10573",
+    "nombre": "JUEGO DE LUCES \"\"300L LED CASCADA SOLAR\"\" LUZ CÃLIDA",
+    "categoria": "OTROS",
+    "costo": "11380.00",
+    "precio": "25000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10574",
+    "nombre": "ADORNO NAVIDEÃO BASTÃN DE CARAMELO C/PAPÃ NOEL X4 C/LUCES. SOLAR",
+    "categoria": "OTROS",
+    "costo": "9450.00",
+    "precio": "21000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10575",
+    "nombre": "ADORNO NAVIDEÃO \"\"PAPÃ NOEL C/ESCALERA Y LUCES SOLAR\"\"",
+    "categoria": "OTROS",
+    "costo": "17350.00",
+    "precio": "35000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10576",
+    "nombre": "UEGO DE LUCES \"\"100L LED CASCADA SOLAR\"\" LUZ CÃLIDA",
+    "categoria": "OTROS",
+    "costo": "5450.00",
+    "precio": "13000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10577",
+    "nombre": "ADORNO NAVIDEÃO \"\"ESTRELLAS C/BASTÃN DE CARAMELO X3 C/LUCES SOLAR",
+    "categoria": "OTROS",
+    "costo": "9750.00",
+    "precio": "22000.00",
+    "stock": "",
+    "imagen": ""
+  },
+  {
+    "id": "10578",
+    "nombre": "ET LONCHERA RECTANGULAR CAPIBARA + VASO C/TAPA Y CUBIERTOS",
+    "categoria": "BAZAR",
+    "costo": "3350.00",
+    "precio": "10000.00",
+    "stock": "",
+    "imagen": ""
+  }
+]

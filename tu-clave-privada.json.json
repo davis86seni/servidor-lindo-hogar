@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tienda-lindo-hogar",
+  "private_key_id": "a683b94b051419fc1981bab82160eddfe06d7adc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDY+d5kPMaZKy63\nUL4fyhkKqr2/nSSlsLkcf9G8jKSDtJ3fKLmmb2hQ9fRV4ySFDa9QeKf6MFRn2dpt\nyylV1Hv4AtRr/2nTU12/9Z1R77menSkDJhQDs5PKFCarfY1957Bf1CSBBgGXmBHV\npkTlnqSh/dOJxjaPTiRdj6YTm7a0yzgpkx3KMcaY2GnoPRe21xH4Ht7IdtEBsqrr\n52ufBXOXQg2GL/cp2dFO9ed17bFsc+HRLEITjLVqp/LU4BcE7vnJbqiQc6PE3R72\nAVuDzKJW1UcpH5TaMHUcmkRkXvoV440vIm2Gpqy9t+BtBmkXMb9XJe3qYSkZGlhC\nnEqwC2TfAgMBAAECggEAAygjga7WrtzPebBNi9XbZmnUh+in41c+YjlD2mvratUi\nZOBJTzAYwvDJJMTAv8TSs6eFviCc4cPsJyPJDqwgP5v+7jFRn1b7qrLOnqYPu8yK\nj7aqnOEseciwRVd2ywmnacWC4HOvaz61p7ebEgIsYAT64mrFWXFoGwpffrKJxniV\nkakXq13f7xM0nzKQbBfMqd3/i3rTN7SLQI0PgCh9fgRkE31ZZ4YXhFHvapUkL0PA\nHbmkO8PkYgfobZ4dTX38XhPQQrZu/Wy9ojUJnU/s2BKhj2uuUZ1JT3Q/dXrfmw7e\nTdu/2CiyzUTNcI36eMjPCxba3BEauVg7PwPUA/XMvQKBgQD7sV1+yOfWrC3uW/Ms\nLwlQ/TvPnYdZtW3zomAgrx05WYHHtOQSTOqdLuptN7yArVj7RRrZoliShKPb7aRv\nMG9dFE1zdfgDQYk3xqqvR039VX1b95+h5PfJxCkfMwQFLtiJCE5Gb8VkFcCMnora\nR+Qs8Ob7bHsWW/hX72k0PYqWIwKBgQDcsGnjE6sMQ1lY8ISNQA8Pmeuso8nTPuiA\nwmWVhGGtJo77E6HWZiGIllM70MTrXlV2U8BWNdW5Z52scTj9/CgftgVUGzx6j3ta\nyA9wItgCCSLbeR7T3l83kGfFjRZ4WBT8tRx0cAFg1BqTvoeh75R/f6Uei1Ul0Jwj\nKW4lZ63cFQKBgQC+KyPWQJwS8iL+HtFcB+oFHGDNnFuA53k9BOmWqFjvVPae2skc\nHquBucn8XYl6u/8oUu1XlLdRdRCNgj+klzb9X/KpE3Ahnam8z8l1B+4gRDCkhTNC\n0kp6U1EytowKEnwfBXyG8bp1xY2ncb698GWxow8S1sMlgLXiUwztILaOewKBgBqm\nSwMa2uruLxnoYXlVJPxzT9xXIwYZcKYr02yMwebQ4y86na5wQthlnsN4YG8zwwo4\n7t76PUbYVlf+jC1Ph+DccCRJ7bG3JeQ+iG64JnGIfOcX5zsafVEOZRmcAfyiVlZ1\n4GvHIsN4mYUB2wsZDUugNGZN2Qhp+pDcbeqibIJJAoGAL8WMwSqv76i2RgIrn+uv\nIeMJBR8czxXY3pUbJPBoLI0LTIOQ6g+/ehwmtzyMZfuts+Cc/HwCfhlBdVJFmKnv\nIbT6rSjoRl0vtgV6eXmdxGJt9lhnZIZNuiDhSnPi0sBPQajoQy3CMJa0HhkefO3F\nWlcl/C+24KWiwYUb36yawCo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@tienda-lindo-hogar.iam.gserviceaccount.com",
+  "client_id": "113903558801308794427",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40tienda-lindo-hogar.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

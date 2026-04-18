@@ -1,0 +1,13 @@
+{
+  "scripts": {
+  "mp-server": "node servidor-mp.js",
+  "start": "node servidor-mp.js"
+},
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.6.1",
+    "mercadopago": "^2.12.0"
+  }
+}
