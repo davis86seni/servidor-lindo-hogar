@@ -12,8 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
     <script src="./js/firebase-init.js"></script>
-    <!-- Origen del servidor MP (mismo host/puerto que PORT_MP en .env). Opcional si usás el predeterminado 3456. -->
-    <!-- <script>window.MP_SERVER_ORIGIN = "http://localhost:3456";</script> -->
+    <!-- Producción usa Render vía firebase-init.js. Para otro dominio del API: <script>window.MP_SERVER_ORIGIN="https://...";</script> antes de mp-init.js -->
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script src="./js/mp-init.js"></script>
     <script src="./js/productos.js"></script>

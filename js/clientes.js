@@ -1254,61 +1254,78 @@ async function asegurarClientePorPedido(pedido) {
     return nuevoClienteRef;
 }
 
+function timestampPedidoParaOrden(pedido) {
+    const raw = pedido.creadoAt || pedido.updatedAt || pedido.mpPaymentApprovedAt;
+    if (raw?.toMillis) return raw.toMillis();
+    if (raw?.toDate) return raw.toDate().getTime();
+    if (typeof raw === "number") return raw;
+    return 0;
+}
+
 async function cargarPedidosPendientes() {
     try {
-        const snapshot = await db.collection("pedidos")
-            .where("estado", "==", "fiado")
-            .orderBy("creadoAt", "desc")
-            .get();
+        let snapFiado = { docs: [] };
+        try {
+            snapFiado = await db.collection("pedidos")
+                .where("estado", "==", "fiado")
+                .orderBy("creadoAt", "desc")
+                .get();
+        } catch (_e) {
+            snapFiado = await db.collection("pedidos").where("estado", "==", "fiado").get();
+        }
+
+        let snapMpPagado = { docs: [] };
+        try {
+            snapMpPagado = await db.collection("pedidos")
+                .where("estado", "==", "pagado")
+                .where("medioPago", "==", "mercado_pago")
+                .get();
+        } catch (e2) {
+            console.warn("[pedidos admin] consulta MP pagados:", e2);
+        }
 
         const contenedor = document.getElementById("contenedor-pedidos-admin");
         if (!contenedor) return;
 
-        if (snapshot.empty) {
+        const porId = new Map();
+        [...snapFiado.docs, ...snapMpPagado.docs].forEach((d) => {
+            porId.set(d.id, d);
+        });
+        const docsOrdenados = Array.from(porId.values()).sort((a, b) => {
+            const ta = timestampPedidoParaOrden(a.data());
+            const tb = timestampPedidoParaOrden(b.data());
+            return tb - ta;
+        });
+
+        if (docsOrdenados.length === 0) {
             contenedor.innerHTML = "<p style='text-align:center; color:#999; padding:30px;'>✅ Sin pedidos pendientes</p>";
             return;
         }
 
-        contenedor.innerHTML = snapshot.docs.map(doc => {
+        contenedor.innerHTML = docsOrdenados.map(doc => {
             const pedido = doc.data();
             const pedidoId = doc.id;
             const pedidoCodigoVisible = (pedido.pedidoCodigo || pedido.codigoPedido || pedidoId || "").toString();
             const fecha = pedido.creadoAt?.toDate ? pedido.creadoAt.toDate().toLocaleDateString() : "Sin fecha";
-            
-            return `
-                <div style="background: white; border: 2px solid #ffc107; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-                        <div>
-                            <p style="margin: 0; font-size: 12px; color: #666;">CLIENTE:</p>
-                            <h4 style="margin: 5px 0; color: #333;">${pedido.clienteNombre}</h4>
-                            <p style="margin: 5px 0; font-size: 13px; color: #999;">${pedido.clienteEmail}</p>
-                        </div>
-                        <div>
-                            <p style="margin: 0; font-size: 12px; color: #666;">PEDIDO:</p>
-                            <h4 style="margin: 5px 0; color: #0d6efd;">#${pedidoCodigoVisible}</h4>
-                            <p style="margin: 0; font-size: 12px; color: #666;">FECHA:</p>
-                            <h4 style="margin: 5px 0; color: #333;">${fecha}</h4>
-                            <p style="margin: 5px 0; font-size: 13px; color: #ffc107; font-weight: bold;">⏳ FIADO</p>
-                        </div>
-                    </div>
+            const esMpPagado = pedido.estado === "pagado" && pedido.medioPago === "mercado_pago";
+            const bordeColor = esMpPagado ? "#198754" : "#ffc107";
+            const etiquetaEstado = esMpPagado
+                ? `<p style="margin: 5px 0; font-size: 13px; color: #198754; font-weight: bold;">💳 PAGADO (Mercado Pago)</p>`
+                : `<p style="margin: 5px 0; font-size: 13px; color: #ffc107; font-weight: bold;">⏳ FIADO</p>`;
 
-                    <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
-                        <p style="margin: 0; font-size: 12px; font-weight: bold; color: #333;">PRODUCTOS:</p>
-                        <ul style="list-style: none; padding: 0; margin: 8px 0;">
-                            ${pedido.items.map(item => `
-                                <li style="padding: 8px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
-                                    <span>• ${item.cantidad}x ${item.nombre}</span>
-                                    <span style="font-weight: bold;">$${item.subtotal.toLocaleString()}</span>
-                                </li>
-                            `).join("")}
-                        </ul>
-                    </div>
-
-                    <div style="background: #e7f3ff; padding: 12px; border-radius: 6px; margin-bottom: 15px; text-align: right;">
-                        <p style="margin: 0; font-size: 12px; color: #0066cc;">TOTAL:</p>
-                        <h3 style="margin: 5px 0; color: #0066cc; font-size: 24px;">$${pedido.total.toLocaleString()}</h3>
-                    </div>
-
+            const bloqueAcciones = esMpPagado
+                ? `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <button onclick="confirmarEntregaMercadoPago('${pedidoId}')" 
+                                style="background: #0d6efd; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; grid-column: 1 / -1;">
+                            📦 CONFIRMAR ENTREGA
+                        </button>
+                        <button onclick="rechazarPedidoAdmin('${pedidoId}')" 
+                                style="background: #dc3545; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; grid-column: 1 / -1;">
+                            ❌ RECHAZAR / REVERTIR
+                        </button>
+                    </div>`
+                : `
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                         <button onclick="confirmarPedidoAdmin('${pedidoId}', 'fiado')" 
                                 style="background: #f0ad4e; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">
@@ -1322,7 +1339,47 @@ async function cargarPedidosPendientes() {
                                 style="background: #dc3545; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px;">
                             ❌ RECHAZAR
                         </button>
+                    </div>`;
+
+            const itemsLista = Array.isArray(pedido.items)
+                ? pedido.items.map(item => `
+                                <li style="padding: 8px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                                    <span>• ${item.cantidad}x ${item.nombre}</span>
+                                    <span style="font-weight: bold;">$${Number(item.subtotal || 0).toLocaleString()}</span>
+                                </li>
+                            `).join("")
+                : "";
+
+            return `
+                <div style="background: white; border: 2px solid ${bordeColor}; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <p style="margin: 0; font-size: 12px; color: #666;">CLIENTE:</p>
+                            <h4 style="margin: 5px 0; color: #333;">${pedido.clienteNombre}</h4>
+                            <p style="margin: 5px 0; font-size: 13px; color: #999;">${pedido.clienteEmail}</p>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-size: 12px; color: #666;">PEDIDO:</p>
+                            <h4 style="margin: 5px 0; color: #0d6efd;">#${pedidoCodigoVisible}</h4>
+                            <p style="margin: 0; font-size: 12px; color: #666;">FECHA:</p>
+                            <h4 style="margin: 5px 0; color: #333;">${fecha}</h4>
+                            ${etiquetaEstado}
+                        </div>
                     </div>
+
+                    <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+                        <p style="margin: 0; font-size: 12px; font-weight: bold; color: #333;">PRODUCTOS:</p>
+                        <ul style="list-style: none; padding: 0; margin: 8px 0;">
+                            ${itemsLista}
+                        </ul>
+                    </div>
+
+                    <div style="background: #e7f3ff; padding: 12px; border-radius: 6px; margin-bottom: 15px; text-align: right;">
+                        <p style="margin: 0; font-size: 12px; color: #0066cc;">TOTAL:</p>
+                        <h3 style="margin: 5px 0; color: #0066cc; font-size: 24px;">$${Number(pedido.total || 0).toLocaleString()}</h3>
+                    </div>
+
+                    ${bloqueAcciones}
                 </div>
             `;
         }).join("");
@@ -1442,6 +1499,118 @@ async function confirmarPedidoAdmin(pedidoId, nuevoEstado = 'pagado') {
     }
 }
 
+/** Archiva venta en cliente + ventas_globales cuando MP ya cobró y solo falta registrar la entrega (sin tocar stock). */
+async function confirmarEntregaMercadoPago(pedidoId) {
+    if (!confirm("¿Confirmar que el pedido pagado por Mercado Pago ya fue entregado?\nSe registrará la venta para ganancias y quedará archivado.")) return;
+
+    try {
+        const pedidoRef = db.collection("pedidos").doc(pedidoId);
+        const pedidoSnap = await pedidoRef.get();
+        if (!pedidoSnap.exists) return alert("Pedido no encontrado");
+
+        const pedido = pedidoSnap.data();
+        if ((pedido.medioPago || "") !== "mercado_pago") {
+            return alert("Este flujo solo aplica a pedidos pagados por Mercado Pago.");
+        }
+        if ((pedido.estado || "") !== "pagado") {
+            return alert("El pedido debe estar en estado pagado (aprobado en Mercado Pago).");
+        }
+
+        const clienteRef = await asegurarClientePorPedido(pedido);
+        const tsPago = typeof pedido.mpPaymentApprovedAt === "number"
+            ? pedido.mpPaymentApprovedAt
+            : Date.now();
+        const fechaLegible = new Date(tsPago).toLocaleString();
+
+        const items = Array.isArray(pedido.items) ? pedido.items : [];
+        const productosDetalle = items.map((item) => ({
+            id: item.id,
+            nombre: item.nombre || "Producto",
+            precio: item.precio != null ? item.precio : item.precioBase,
+            costo: item.costo || 0,
+            cantidad: Number(item.cantidad || 1),
+        }));
+
+        const subtotal = items.reduce(
+            (sum, item) => sum + Number(item.precioBase || item.precio || 0) * Number(item.cantidad || 1),
+            0
+        );
+        const total = Number(pedido.total != null
+            ? pedido.total
+            : items.reduce((s, item) => s + Number(item.subtotal || 0), 0));
+
+        const ventaData = {
+            clienteId: clienteRef.id,
+            nombreCliente: pedido.clienteNombre || pedido.clienteEmail || "Cliente",
+            clienteEmail: pedido.clienteEmail || "",
+            productosDetalle,
+            detalle: items.map((item) => `${item.cantidad || 1}x ${item.nombre} ($${item.precio != null ? item.precio : item.precioBase})`).join(", "),
+            subtotal,
+            descuentoAplicado: pedido.descuentoAplicado || 0,
+            total,
+            costoTotal: items.reduce(
+                (acc, item) => acc + Number(item.costo || 0) * Number(item.cantidad || 1),
+                0
+            ),
+            entregaParcial: total,
+            historialPagos: [{
+                fecha: fechaLegible,
+                monto: total,
+                timestamp: tsPago,
+                detalle: "Mercado Pago — pago aprobado",
+            }],
+            timestamp: tsPago,
+            fecha: new Date(tsPago).toLocaleDateString(),
+            fechaObjeto: firebase.firestore.Timestamp.fromMillis(tsPago),
+            estado: "pagado",
+            origenMercadoPago: true,
+            mercadoPagoPaymentId: pedido.mpPaymentId || "",
+            pedidoOrigenId: pedidoId,
+        };
+
+        const batch = db.batch();
+        const compraGlobalRef = db.collection("ventas_globales").doc(pedidoId);
+        const compraClienteRef = clienteRef.collection("compras").doc(pedidoId);
+
+        batch.set(compraGlobalRef, ventaData);
+        batch.set(compraClienteRef, ventaData);
+
+        batch.update(pedidoRef, {
+            estado: "finalizado",
+            entregaConfirmadaAt: firebase.firestore.FieldValue.serverTimestamp(),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+
+        try {
+            await batch.commit();
+        } catch (error) {
+            if (error.code === "permission-denied") {
+                const fallback = db.batch();
+                fallback.set(compraClienteRef, ventaData);
+                fallback.update(pedidoRef, {
+                    estado: "finalizado",
+                    entregaConfirmadaAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                });
+                await fallback.commit();
+                try {
+                    await compraGlobalRef.set(ventaData);
+                } catch (eG) {
+                    console.warn("[MP entrega] ventas_globales omitido:", eG.message);
+                }
+            } else {
+                throw error;
+            }
+        }
+
+        alert("✅ Entrega confirmada. Venta registrada y pedido archivado como finalizado.");
+        cargarPedidosPendientes();
+    } catch (error) {
+        console.error("confirmarEntregaMercadoPago:", error);
+        alert("❌ Error: " + (error.message || error));
+    }
+}
+
 async function rechazarPedidoAdmin(pedidoId) {
     if (!confirm("¿Rechazar este pedido?\n\n⚠️ Se devolverá el stock automáticamente")) return;
 
@@ -1460,18 +1629,28 @@ async function rechazarPedidoAdmin(pedidoId) {
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Devolver stock de cada producto
-        pedido.items.forEach(item => {
-            const prodRef = db.collection("productos").doc(item.id.toString());
-            batch.update(prodRef, {
-                stock: firebase.firestore.FieldValue.increment(item.cantidad),
-                ultimaActualizacion: Date.now()
+        const estadoPedido = (pedido.estado || "").toString();
+        const debeDevolverStock =
+            estadoPedido === "fiado" ||
+            pedido.stockDescontado === true;
+
+        // Fiado (stock descontado al crear pedido) o MP ya aprobado (stock descontado en webhook)
+        if (debeDevolverStock && Array.isArray(pedido.items)) {
+            pedido.items.forEach(item => {
+                const prodRef = db.collection("productos").doc(item.id.toString());
+                batch.update(prodRef, {
+                    stock: firebase.firestore.FieldValue.increment(item.cantidad),
+                    ultimaActualizacion: Date.now()
+                });
             });
-        });
+        }
 
         await batch.commit();
 
-        alert(`❌ Pedido rechazado\n✅ Stock devuelto: ${pedido.items.map(i => `${i.cantidad}x ${i.nombre}`).join(", ")}`);
+        const msgStock = debeDevolverStock && Array.isArray(pedido.items)
+            ? `\n✅ Stock devuelto: ${pedido.items.map(i => `${i.cantidad}x ${i.nombre}`).join(", ")}`
+            : "\n(Sin devolución de stock: el pedido estaba pendiente de pago o sin descuento de mercadería.)";
+        alert(`❌ Pedido rechazado${msgStock}`);
         cargarPedidosPendientes();
     } catch (error) {
         console.error(error);

@@ -112,6 +112,10 @@ function renderPedidoCard(pedido, esPendiente) {
     const total = Number(pedido.total || 0);
     const estadoTexto = (pedido.estado || (esPendiente ? "pendiente" : "finalizado")).toString();
     const estadoNormalizado = normalizarEstado(estadoTexto);
+    const etiquetaEstado =
+        estadoNormalizado === "pagado"
+            ? "PAGADO"
+            : estadoTexto.toString().toUpperCase();
     const badgeClass = obtenerBadgeEstado(estadoNormalizado, esPendiente);
 
     const productos = Array.isArray(pedido.items) ? pedido.items : [];
@@ -142,7 +146,7 @@ function renderPedidoCard(pedido, esPendiente) {
                             <h3 class="h6 mb-1">Pedido #${idPedidoMostrable}</h3>
                             <p class="text-muted small mb-0">${fecha}</p>
                         </div>
-                        <span class="badge ${badgeClass} text-uppercase">${estadoTexto}</span>
+                        <span class="badge ${badgeClass} text-uppercase">${etiquetaEstado}</span>
                     </div>
                     <ul class="list-group list-group-flush mb-3">${listaProductos}</ul>
                     <div class="d-flex justify-content-between align-items-center">

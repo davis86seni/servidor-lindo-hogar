@@ -292,7 +292,22 @@ async function crearPreferenciaMercadoPago() {
     }
 
     const mult = typeof window.COMISION_MP === "number" ? window.COMISION_MP : 1.12;
-    const items = productosAgrupados.map((p) => {
+
+    const host = typeof window !== "undefined" && window.location ? window.location.hostname : "";
+    const esLocalHost = host === "localhost" || host === "127.0.0.1";
+    const defaultMpOrigin = esLocalHost
+        ? "http://localhost:3456"
+        : "https://servidor-lindo-hogar.onrender.com";
+    const originFallback =
+        typeof window.MP_SERVER_ORIGIN === "string" && window.MP_SERVER_ORIGIN.trim()
+            ? window.MP_SERVER_ORIGIN.trim().replace(/\/$/, "")
+            : defaultMpOrigin;
+    const apiUrl =
+        (typeof window.MP_PREFERENCE_API_URL === "string" && window.MP_PREFERENCE_API_URL.trim()
+            ? window.MP_PREFERENCE_API_URL.trim()
+            : `${originFallback}/api/crear-preferencia`);
+
+    const itemsPreferencia = productosAgrupados.map((p) => {
         const unitPrice = Math.round(Number(p.precio || 0) * mult);
         const row = {
             id: String(p.id),
@@ -306,31 +321,81 @@ async function crearPreferenciaMercadoPago() {
         return row;
     });
 
-    const originFallback =
-        typeof window.MP_SERVER_ORIGIN === "string" && window.MP_SERVER_ORIGIN.trim()
-            ? window.MP_SERVER_ORIGIN.trim().replace(/\/$/, "")
-            : "http://localhost:3456";
-            const apiUrl = "http://localhost:3456/api/crear-preferencia"; 
-            // Nota: Usamos localhost:3456 porque es el puerto que tenés en tu .env
-        
-            const res = await fetch(apiUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    items,
-                    payerEmail: user.email || undefined,
-                }),
-            });
+    const clienteRef = await asegurarClientePorUsuario(user);
+    const pedidoCodigo = await generarCodigoPedidoCorto();
+    const pedidoRef = db.collection("pedidos").doc();
 
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-        throw new Error(data.error || "No se pudo crear la preferencia de pago.");
-    }
-    if (!data.init_point) {
-        throw new Error("Respuesta inválida del servidor de pagos.");
+    const itemsPedido = [];
+    for (const p of productosAgrupados) {
+        const precioBase = Number(p.precio || 0);
+        const cantidad = Number(p.cantidad) || 1;
+        const precioUnitMp = Math.round(precioBase * mult);
+        let costo = Number(p.costo || 0);
+        if (!costo && p.id) {
+            const snap = await db.collection("productos").doc(String(p.id)).get();
+            if (snap.exists) costo = Number(snap.data().costo || 0);
+        }
+        itemsPedido.push({
+            id: p.id,
+            nombre: p.nombre || "Producto",
+            precioBase,
+            precio: precioUnitMp,
+            costo,
+            cantidad,
+            subtotal: precioUnitMp * cantidad,
+        });
     }
 
-    window.location.href = data.init_point;
+    const total = itemsPedido.reduce((sum, it) => sum + it.subtotal, 0);
+
+    await pedidoRef.set({
+        clienteId: clienteRef.id,
+        clienteEmail: user.email,
+        clienteNombre: user.displayName || user.email,
+        uid: user.uid,
+        estado: "pendiente",
+        medioPago: "mercado_pago",
+        stockDescontado: false,
+        comisionAplicadaMP: Math.round((mult - 1) * 100),
+        pedidoCodigo,
+        items: itemsPedido,
+        total,
+        creadoAt: firebase.firestore.FieldValue.serverTimestamp(),
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    try {
+        const res = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                items: itemsPreferencia,
+                payerEmail: user.email || undefined,
+                external_reference: pedidoRef.id,
+            }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+            await pedidoRef.delete().catch(() => {});
+            throw new Error(data.error || "No se pudo crear la preferencia de pago.");
+        }
+        if (!data.init_point) {
+            await pedidoRef.delete().catch(() => {});
+            throw new Error("Respuesta inválida del servidor de pagos.");
+        }
+
+        carritoProductos = [];
+        almacenarCarrito();
+        if (typeof actualizarContadorInterfaz === "function") {
+            actualizarContadorInterfaz();
+        }
+
+        window.location.href = data.init_point;
+    } catch (e) {
+        await pedidoRef.delete().catch(() => {});
+        throw e;
+    }
 }
 
 async function confirmarCompraConLogin(medioForzado) {
@@ -441,7 +506,14 @@ async function finalizarCompra(medio) {
             await crearPreferenciaMercadoPago();
         } catch (err) {
             console.error(err);
-            alert("❌ " + (err.message || "No se pudo abrir Mercado Pago."));
+            let msg = err.message || "No se pudo abrir Mercado Pago.";
+            if (/failed to fetch|networkerror|load failed/i.test(String(msg))) {
+                msg =
+                    "No se pudo conectar con el servidor de Mercado Pago (" +
+                    (window.MP_SERVER_ORIGIN || "backend") +
+                    "). Verificá que esté desplegado y despierto (Render puede tardar unos segundos la primera vez).";
+            }
+            alert("❌ " + msg);
         }
         return;
     }
