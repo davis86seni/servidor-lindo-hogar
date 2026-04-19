@@ -3,6 +3,58 @@ if (typeof window.COMISION_MP !== "number") {
     window.COMISION_MP = 1.12;
 }
 
+/** Mismo número que el flotante de WhatsApp en index.html */
+const TIENDA_WHATSAPP_NUMERO = "5492995050726";
+
+/**
+ * Pregunta si quiere enviar el pedido por WhatsApp y abre el chat con detalle (ítems, precio unitario, total).
+ * @param {string} pedidoCodigo
+ * @param {string} medioEtiqueta  Ej: "Efectivo / transferencia" o "Mercado Pago (+12%)"
+ * @param {Array<{ nombre: string, cantidad: number, precio?: number, precioBase?: number, subtotal?: number }>} itemsPedido
+ * @param {number} total
+ */
+function ofrecerEnviarPedidoPorWhatsApp(pedidoCodigo, medioEtiqueta, itemsPedido, total) {
+    if (!itemsPedido || itemsPedido.length === 0) return;
+    const quiere = window.confirm(
+        "¿Querés enviar también el resumen de tu pedido por WhatsApp a la tienda?\n\n" +
+            "Se abrirá WhatsApp con el detalle de productos, precios y total."
+    );
+    if (!quiere) return;
+
+    const lineasItems = itemsPedido
+        .map((it) => {
+            const nombre = (it.nombre || "Producto").toString();
+            const cant = Math.max(1, Number(it.cantidad || 1));
+            const precioU = Number(
+                it.precio !== undefined && it.precio !== null ? it.precio : it.precioBase || 0
+            );
+            const sub =
+                it.subtotal !== undefined && it.subtotal !== null
+                    ? Number(it.subtotal)
+                    : Math.round(precioU * cant);
+            return (
+                `• ${cant}× ${nombre}\n` +
+                `  Precio unitario: $${precioU.toLocaleString("es-AR")}\n` +
+                `  Subtotal: $${sub.toLocaleString("es-AR")}\n`
+            );
+        })
+        .join("\n");
+
+    let texto =
+        "¡Hola Lindo Hogar! 👋\n\n" +
+        (pedidoCodigo ? `Pedido #${pedidoCodigo}\n` : "") +
+        `Medio elegido: ${medioEtiqueta}\n\n` +
+        "*Detalle del pedido:*\n\n" +
+        lineasItems +
+        "\n" +
+        `*Total del pedido: $${Number(total).toLocaleString("es-AR")}*\n\n` +
+        "_(Enviado desde la tienda web)_";
+
+    const url = `https://wa.me/${TIENDA_WHATSAPP_NUMERO}?text=${encodeURIComponent(texto)}`;
+    const win = window.open(url, "_blank");
+    if (win) win.opener = null;
+}
+
 
 // 2. Función para guardar los cambios en el navegador
 function almacenarCarrito() {
@@ -107,8 +159,7 @@ async function enviarWhatsApp() {
 
         mensaje += `\n*Total a pagar: $${total}*`;
 
-        const telefono = "5492995050726";
-        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        const url = `https://wa.me/${TIENDA_WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
         
         // Vaciar carrito y recargar
         carritoProductos = [];
@@ -397,7 +448,20 @@ async function crearPreferenciaMercadoPago() {
             actualizarContadorInterfaz();
         }
 
-        window.location.href = data.init_point;
+        alert(
+            `✅ Pedido #${pedidoCodigo} creado.\n\n` +
+                "Te llevamos a Mercado Pago para completar el pago con tarjeta u otros medios."
+        );
+        ofrecerEnviarPedidoPorWhatsApp(
+            pedidoCodigo,
+            "Mercado Pago (+12% sobre lista)",
+            itemsPedido,
+            total
+        );
+
+        setTimeout(() => {
+            window.location.href = data.init_point;
+        }, 250);
     } catch (e) {
         await pedidoRef.delete().catch(() => {});
         throw e;
@@ -500,13 +564,26 @@ async function confirmarCompraConLogin(medioForzado) {
         carritoProductos = [];
         almacenarCarrito();
 
-        alert(`✅ Pedido #${pedidoCodigo} registrado como FIADO.\n\nEl administrador confirmará tu compra pronto.\nTotal: $${total.toLocaleString()}`);
-        
+        alert(
+            `✅ Pedido #${pedidoCodigo} registrado como FIADO.\n\n` +
+                "El administrador confirmará tu compra pronto.\n" +
+                `Total: $${total.toLocaleString()}`
+        );
+
+        ofrecerEnviarPedidoPorWhatsApp(
+            pedidoCodigo,
+            "Efectivo / transferencia",
+            items,
+            total
+        );
+
         if (typeof cargarResumenPedidosCliente === "function") {
             cargarResumenPedidosCliente();
         }
 
-        location.href = "index.html";
+        setTimeout(() => {
+            location.href = "index.html";
+        }, 200);
 
     } catch (error) {
         console.error("ERROR COMPLETO:", error);

@@ -7,6 +7,34 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /* Botón con logo oficial (imagen en ./images/mercadopago-logo.png) */
+        .btn-mp-checkout {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border: 1px solid #d0e8f5;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.15s ease, transform 0.15s ease;
+        }
+        .btn-mp-checkout:hover {
+            box-shadow: 0 3px 12px rgba(0, 158, 227, 0.22);
+        }
+        .btn-mp-checkout:active {
+            transform: scale(0.99);
+        }
+        .btn-mp-checkout .btn-mp-logo-img {
+            display: block;
+            height: 44px;
+            width: auto;
+            max-width: min(220px, 70vw);
+            object-fit: contain;
+        }
+    </style>
 
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
@@ -72,9 +100,10 @@
                     💵 Efectivo / transferencia
                 </button>
 
-                <button onclick="finalizarCompra('mercado_pago')" type="button"
-                        style="background-color: #009ee3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px;">
-                    💳 Mercado Pago (Checkout Pro)
+                <button onclick="finalizarCompra('mercado_pago')" type="button" class="btn-mp-checkout"
+                        title="Pagar con Mercado Pago">
+                    <img class="btn-mp-logo-img" src="./images/mercadopago-logo.png"
+                         width="176" height="71" alt="Mercado Pago">
                 </button>
             </div>
         </section>
