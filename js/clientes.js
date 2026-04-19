@@ -873,19 +873,24 @@ async function generarReporteExacto() {
 
         snapGastos.forEach(g => totalGastosFlete += Number(g.data().monto || 0));
 
-        // --- 4. CÁLCULOS FINALES ---
-        const gananciaLimpia = ventasFinalizadasMonto - costoMercaderiaTotal - totalGastosFlete;
+        // --- 4. CÁLCULOS FINALES (CORREGIDO PARA LINDO HOGAR) ---
+        
+        // 1. Primero calculamos la ganancia bruta real (Ventas base - Costos)
+        const gananciaBrutaVentas = ventasFinalizadasMonto - costoMercaderiaTotal;
+
+        // 2. Calculamos la utilidad neta descontando los gastos de flete
+        const gananciaLimpia = gananciaBrutaVentas - totalGastosFlete;
 
         // Mostrar resultados
         alert(`📊 REPORTE LINDO HOGAR\n` +
-              `------------------------------------------\n` +
-              `💰 EFECTIVO EN CAJA: $${efectivoTotalRecibido.toLocaleString()}\n` +
-              `   (Dinero que entró físicamente hoy)\n\n` +
-              `✅ VENTAS CERRADAS:$${ventasFinalizadasMonto.toLocaleString()}\n` +
-              `📉 COSTO DE ELLAS: -$${costoMercaderiaTotal.toLocaleString()}\n` +
-              `🚚 FLETES/GASTOS: -$${totalGastosFlete.toLocaleString()}\n` +
-              `------------------------------------------\n` +
-              `💵 UTILIDAD NETA: $${gananciaLimpia.toLocaleString()}`);
+            `------------------------------------------\n` +
+            `💰 EFECTIVO EN CAJA: $${efectivoTotalRecibido.toLocaleString()}\n` +
+            `(Dinero total que entró hoy, incluye recargos)\n\n` +
+            `✅ VENTAS CERRADAS: $${ventasFinalizadasMonto.toLocaleString()}\n` +
+            `📉 COSTO DE ELLAS: -$${costoMercaderiaTotal.toLocaleString()}\n` +
+            `🚚 FLETES/GASTOS: -$${totalGastosFlete.toLocaleString()}\n` +
+            `------------------------------------------\n` +
+            `💵 UTILIDAD NETA: $${gananciaLimpia.toLocaleString()}`);
 
     } catch (error) {
         console.error("Error:", error);
