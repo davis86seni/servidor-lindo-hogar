@@ -272,89 +272,37 @@ async function procesarPagoFiadoAprobado(payment) {
 }
 
 async function procesarPagoAprobado(payment) {
-    const db = admin.firestore();
-    const FieldValue = admin.firestore.FieldValue;
+    const externalRef = payment.external_reference; 
+    console.log("[webhook] Procesando pago aprobado para pedido:", externalRef);
 
-    const externalRef = payment.external_reference != null ? String(payment.external_reference).trim() : "";
-    if (!externalRef) {
-        console.warn("[webhook] Pago sin external_reference, no se actualiza pedido.");
-        return;
-    }
-
-    const pedidoRef = db.collection("pedidos").doc(externalRef);
+    const pedidoRef = admin.firestore().collection("pedidos").doc(externalRef);
     const pedidoSnap = await pedidoRef.get();
-    if (!pedidoSnap.exists) {
-        console.warn("[webhook] Pedido no encontrado:", externalRef);
-        return;
-    }
 
-    const pedido = pedidoSnap.data();
-    const medio = (pedido.medioPago || "").toString();
-    if (medio !== "mercado_pago") {
-        console.warn("[webhook] Pedido no es Mercado Pago, se ignora:", externalRef, medio);
-        return;
-    }
+    if (!pedidoSnap.exists) return;
 
-    if (pedido.estado === "finalizado") {
-        console.log("[webhook] Pedido ya finalizado:", externalRef);
-        return;
-    }
+    const pedidoData = pedidoSnap.data();
+    const batch = admin.firestore().batch();
 
-    const paymentIdStr = String(payment.id != null ? payment.id : "");
-    if (pedido.estado === "pagado" && pedido.mpPaymentId && String(pedido.mpPaymentId) === paymentIdStr) {
-        console.log("[webhook] Idempotente, pedido ya marcado pagado con este pago:", externalRef);
-        return;
-    }
-
-    if (pedido.estado === "pagado") {
-        console.warn("[webhook] Pedido ya pagado con otro flujo:", externalRef);
-        return;
-    }
-
-    const items = Array.isArray(pedido.items) ? pedido.items : [];
-    const approvedMs = payment.date_approved
-        ? new Date(payment.date_approved).getTime()
-        : Date.now();
-    const fechaPagoPedido = payment.date_approved
-        ? new Date(payment.date_approved).toLocaleString("es-AR")
-        : new Date().toLocaleString("es-AR");
-    const totalPedido = Number(pedido.total != null ? pedido.total : 0);
-
-    const batch = db.batch();
-
-    items.forEach((item) => {
-        const pid = item.id != null ? String(item.id) : "";
-        const cantidad = Math.max(0, Number(item.cantidad) || 0);
-        if (!pid || cantidad <= 0) return;
-        const refProd = db.collection("productos").doc(pid);
-        batch.update(refProd, {
-            stock: FieldValue.increment(-cantidad),
-            ultimaActualizacion: Date.now(),
-        });
-    });
-
+    // 1. Cambiamos el estado a pagado y marcamos que YA se descontó el stock
     batch.update(pedidoRef, {
         estado: "pagado",
-        stockDescontado: true,
-        mpPaymentId: payment.id != null ? payment.id : null,
-        mpPaymentStatus: payment.status || null,
-        mpPaymentApprovedAt: approvedMs,
-        mpTransactionAmount: payment.transaction_amount != null ? payment.transaction_amount : null,
-        entregaParcial: totalPedido,
-        saldoRestanteVenta: 0,
-        saldoPendiente: 0,
-        historialPagos: FieldValue.arrayUnion({
-            fecha: fechaPagoPedido,
-            monto: totalPedido,
-            timestamp: approvedMs,
-            detalle: "Mercado Pago — pago aprobado",
-            mpPaymentId: payment.id != null ? payment.id : null,
-        }),
-        updatedAt: FieldValue.serverTimestamp(),
+        stockDescontado: true, // Esta marca es clave para no descontar dos veces
+        updatedAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
+    // 2. Descontamos el stock de cada producto
+    if (Array.isArray(pedidoData.items)) {
+        pedidoData.items.forEach(item => {
+            const prodRef = admin.firestore().collection("productos").doc(item.id.toString());
+            batch.update(prodRef, {
+                stock: admin.firestore.FieldValue.increment(-item.cantidad),
+                ultimaActualizacion: Date.now()
+            });
+        });
+    }
+
     await batch.commit();
-    console.log("[webhook] Pedido actualizado a pagado y stock descontado:", externalRef);
+    console.log("✅ Pedido pagado y stock restado automáticamente.");
 }
 
 /** Notificaciones Mercado Pago (payment). */
