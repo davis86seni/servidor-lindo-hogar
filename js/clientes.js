@@ -1012,16 +1012,28 @@ async function filtrarPorProducto() {
     }
 }
 
+function timestampGastoAMs(ts) {
+    if (ts == null) return 0;
+    if (typeof ts === "number") return ts;
+    if (typeof ts === "object" && typeof ts.toMillis === "function") return ts.toMillis();
+    if (typeof ts === "object" && typeof ts.seconds === "number") return ts.seconds * 1000;
+    return 0;
+}
+
 // --- FUNCIÓN PARA MOSTRAR LA TABLA DE FLETES ---
 async function cargarListaFletes() {
     const fechaDesde = document.getElementById("fecha-desde").value;
     const fechaHasta = document.getElementById("fecha-hasta").value;
     const tablaBody = document.getElementById("tabla-gastos-body");
+    const contHistorial = document.getElementById("contenedor-historial-gastos");
 
     if (!fechaDesde || !fechaHasta) {
         alert("Por favor, seleccioná ambas fechas.");
         return;
     }
+
+    if (contHistorial) contHistorial.style.display = "block";
+    if (contHistorial) contHistorial.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     tablaBody.innerHTML = "<tr><td colspan='4' style='text-align:center;'>Buscando...</td></tr>";
 
@@ -1037,7 +1049,7 @@ async function cargarListaFletes() {
 
         // Filtramos en cliente por rango de fechas
         const gastosFiltrados = snap.docs.filter(doc => {
-            const ts = doc.data().timestamp || 0;
+            const ts = timestampGastoAMs(doc.data().timestamp);
             return ts >= inicio && ts <= fin;
         });
 
@@ -1050,9 +1062,12 @@ async function cargarListaFletes() {
 
         gastosFiltrados.forEach(doc => {
             const gasto = doc.data();
-            
+            const tsMs = timestampGastoAMs(gasto.timestamp);
+
             // Convertimos el timestamp de vuelta a una fecha legible para mostrar
-            const fechaLegible = new Date(gasto.timestamp).toLocaleDateString();
+            const fechaLegible = tsMs
+                ? new Date(tsMs).toLocaleDateString()
+                : (gasto.fecha || "-");
 
             const tr = document.createElement("tr");
             tr.innerHTML = `
