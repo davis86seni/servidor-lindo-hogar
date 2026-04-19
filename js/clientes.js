@@ -849,7 +849,7 @@ async function generarReporteExacto() {
             // O si prefieres: si la venta se ORIGINÓ en este rango (tú eliges la política)
             if (fechaVenta >= inicioMS && fechaVenta <= finMS) {
                 if (d.estado === "pagado") {
-                    ventasFinalizadasMonto += Number(d.total || 0);
+                    ventasFinalizadasMonto += Number(d.subtotal || 0);
                     
                     // Priorizamos costoTotal, sino sumamos costo unitario × cantidad por línea
                     if (d.costoTotal !== undefined && d.costoTotal !== null) {
