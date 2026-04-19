@@ -3,18 +3,8 @@
  * (valores definidos en .env). No incluye el Access Token.
  */
 (function () {
-    const defaultOrigin =
-        typeof window !== "undefined" &&
-        window.location &&
-        window.location.hostname !== "localhost" &&
-        window.location.hostname !== "127.0.0.1"
-            ? "https://servidor-lindo-hogar.onrender.com"
-            : "http://localhost:3456";
-    const origin = (
-        typeof window.MP_SERVER_ORIGIN === "string" && window.MP_SERVER_ORIGIN.trim()
-            ? window.MP_SERVER_ORIGIN.trim().replace(/\/$/, "")
-            : defaultOrigin
-    );
+    // Siempre usar la URL de producción
+    const origin = "https://servidor-lindo-hogar.onrender.com";
 
     window.__mpConfigReady = (async function loadMpPublicConfig() {
         try {

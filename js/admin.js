@@ -620,23 +620,32 @@ async function rechazarPedido(pedidoId) {
         const pedido = pedidoSnap.data();
         const batch = db.batch();
 
-        // Rechazar pedido
         batch.update(pedidoRef, {
             estado: "rechazada",
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
-        // Devolver stock
-        pedido.items.forEach(item => {
-            const prodRef = db.collection("productos").doc(item.id.toString());
-            batch.update(prodRef, {
-                stock: firebase.firestore.FieldValue.increment(item.cantidad)
+        const estadoPedido = (pedido.estado || "").toString();
+        const debeDevolverStock =
+            estadoPedido === "fiado" || pedido.stockDescontado === true;
+
+        if (debeDevolverStock && Array.isArray(pedido.items)) {
+            pedido.items.forEach((item) => {
+                const prodRef = db.collection("productos").doc(item.id.toString());
+                batch.update(prodRef, {
+                    stock: firebase.firestore.FieldValue.increment(item.cantidad),
+                    ultimaActualizacion: Date.now(),
+                });
             });
-        });
+        }
 
         await batch.commit();
 
-        alert("❌ Pedido rechazado y stock devuelto");
+        alert(
+            debeDevolverStock
+                ? "❌ Pedido rechazado y stock devuelto"
+                : "❌ Pedido rechazado (sin cambio de stock: pendiente de pago MP u otro flujo)"
+        );
         cargarPedidosPendientes();
     } catch (error) {
         console.error(error);

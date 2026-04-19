@@ -161,6 +161,116 @@ async function fetchPayment(accessToken, paymentId) {
     return res.json();
 }
 
+/**
+ * Pago de saldo fiado: external_reference = FIADO|clienteId|compraDocId
+ * (misma comisión que checkout; el monto acreditado debe cubrir el saldo base).
+ */
+async function procesarPagoFiadoAprobado(payment) {
+    const db = admin.firestore();
+    const FieldValue = admin.firestore.FieldValue;
+
+    const externalRef = payment.external_reference != null ? String(payment.external_reference).trim() : "";
+    if (!externalRef.startsWith("FIADO|")) {
+        return false;
+    }
+
+    const parts = externalRef.split("|");
+    if (parts.length !== 3) {
+        console.warn("[webhook] Referencia FIADO inválida:", externalRef);
+        return true;
+    }
+
+    const clienteId = parts[1];
+    const compraId = parts[2];
+    const paymentIdStr = String(payment.id != null ? payment.id : "");
+
+    const compraRef = db.collection("clientes").doc(clienteId).collection("compras").doc(compraId);
+    const compraSnap = await compraRef.get();
+    if (!compraSnap.exists) {
+        console.warn("[webhook] Compra fiado no encontrada:", clienteId, compraId);
+        return true;
+    }
+
+    const d = compraSnap.data();
+    const estado = (d.estado || "").toString();
+    if (estado !== "fiado" && estado !== "fiado_confirmado") {
+        console.warn("[webhook] La compra no está en fiado:", estado, compraId);
+        return true;
+    }
+
+    if (d.mpFiadoUltimoPaymentId && String(d.mpFiadoUltimoPaymentId) === paymentIdStr) {
+        console.log("[webhook] FIADO idempotente:", compraId);
+        return true;
+    }
+
+    const saldoAntes =
+        d.saldoRestanteVenta !== undefined && d.saldoRestanteVenta !== null
+            ? Number(d.saldoRestanteVenta)
+            : Number(d.total || 0) - Number(d.entregaParcial || 0);
+
+    const monto = Number(payment.transaction_amount || 0);
+    if (saldoAntes <= 0 || monto <= 0) {
+        console.warn("[webhook] FIADO sin saldo o monto inválido:", saldoAntes, monto);
+        return true;
+    }
+
+    const aplicar = Math.min(monto, saldoAntes);
+    let nuevoSaldoRestante = saldoAntes - aplicar;
+    if (nuevoSaldoRestante < 0.02) nuevoSaldoRestante = 0;
+    const nuevoEstado = nuevoSaldoRestante <= 0.01 ? "pagado" : estado;
+
+    const fechaPago = payment.date_approved
+        ? new Date(payment.date_approved).toLocaleString("es-AR")
+        : new Date().toLocaleString("es-AR");
+    const ts =
+        payment.date_approved != null ? new Date(payment.date_approved).getTime() : Date.now();
+
+    const updateCompra = {
+        estado: nuevoEstado,
+        saldoRestanteVenta: nuevoSaldoRestante,
+        entregaParcial: FieldValue.increment(aplicar),
+        historialPagos: FieldValue.arrayUnion({
+            fecha: fechaPago,
+            monto: aplicar,
+            timestamp: ts,
+            detalle: "Mercado Pago — saldo fiado",
+            mpPaymentId: payment.id != null ? payment.id : null,
+        }),
+        mpFiadoUltimoPaymentId: payment.id != null ? payment.id : null,
+        mpFiadoUltimoMonto: aplicar,
+        updatedAt: FieldValue.serverTimestamp(),
+    };
+
+    const batch = db.batch();
+    batch.update(compraRef, updateCompra);
+    batch.update(db.collection("clientes").doc(clienteId), {
+        saldoPendiente: FieldValue.increment(-aplicar),
+    });
+
+    const globalRef = db.collection("ventas_globales").doc(compraId);
+    const globalSnap = await globalRef.get();
+    if (globalSnap.exists) {
+        batch.update(globalRef, updateCompra);
+    }
+
+    const pedidoRef = db.collection("pedidos").doc(compraId);
+    const pedidoSnap = await pedidoRef.get();
+    if (pedidoSnap.exists) {
+        batch.update(pedidoRef, {
+            estado: nuevoEstado,
+            saldoRestanteVenta: nuevoSaldoRestante,
+            saldoPendiente: nuevoSaldoRestante,
+            entregaParcial: FieldValue.increment(aplicar),
+            historialPagos: updateCompra.historialPagos,
+            updatedAt: updateCompra.updatedAt,
+        });
+    }
+
+    await batch.commit();
+    console.log("[webhook] Pago fiado registrado:", compraId, "restante:", nuevoSaldoRestante);
+    return true;
+}
+
 async function procesarPagoAprobado(payment) {
     const db = admin.firestore();
     const FieldValue = admin.firestore.FieldValue;
@@ -205,6 +315,10 @@ async function procesarPagoAprobado(payment) {
     const approvedMs = payment.date_approved
         ? new Date(payment.date_approved).getTime()
         : Date.now();
+    const fechaPagoPedido = payment.date_approved
+        ? new Date(payment.date_approved).toLocaleString("es-AR")
+        : new Date().toLocaleString("es-AR");
+    const totalPedido = Number(pedido.total != null ? pedido.total : 0);
 
     const batch = db.batch();
 
@@ -226,6 +340,16 @@ async function procesarPagoAprobado(payment) {
         mpPaymentStatus: payment.status || null,
         mpPaymentApprovedAt: approvedMs,
         mpTransactionAmount: payment.transaction_amount != null ? payment.transaction_amount : null,
+        entregaParcial: totalPedido,
+        saldoRestanteVenta: 0,
+        saldoPendiente: 0,
+        historialPagos: FieldValue.arrayUnion({
+            fecha: fechaPagoPedido,
+            monto: totalPedido,
+            timestamp: approvedMs,
+            detalle: "Mercado Pago — pago aprobado",
+            mpPaymentId: payment.id != null ? payment.id : null,
+        }),
         updatedAt: FieldValue.serverTimestamp(),
     });
 
@@ -251,7 +375,10 @@ async function handleWebhook(req, res) {
         const payment = await fetchPayment(accessToken, paymentId);
 
         if (payment.status === "approved") {
-            await procesarPagoAprobado(payment);
+            const fiadoHandled = await procesarPagoFiadoAprobado(payment);
+            if (!fiadoHandled) {
+                await procesarPagoAprobado(payment);
+            }
         } else {
             console.log("[webhook] Pago no aprobado:", paymentId, payment.status);
         }

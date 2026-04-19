@@ -1,5 +1,11 @@
 const admins = ["davis86seni@gmail.com", "elenaisabelceballos@gmail.com"];
 
+window.LINDO_HOGAR_ADMINS = admins;
+window.esUsuarioAdminLindoHogar = function esUsuarioAdminLindoHogar() {
+    const u = firebase.auth().currentUser;
+    return !!(u && admins.includes(u.email));
+};
+
 firebase.auth().onAuthStateChanged((user) => {
     const container = document.getElementById("auth-container");
     if (!container) return;

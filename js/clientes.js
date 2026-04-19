@@ -315,7 +315,6 @@ async function confirmarVentaMasiva(clienteId) {
             return alert("No se encontró el cliente. No se registró la venta.");
         }
 
-        const batch = db.batch();
         const refCompraGlobal = db.collection('ventas_globales').doc();
         const refCompraCliente = clienteRef.collection('compras').doc(refCompraGlobal.id);
 
@@ -332,9 +331,14 @@ async function confirmarVentaMasiva(clienteId) {
             });
         }
 
+        const datosClienteSnap = clienteSnap.data();
+        const nombreClienteVenta =
+            (datosClienteSnap.nombre || document.querySelector("h3").innerText.replace("Venta para: ", "")).trim();
+        const emailClienteVenta = (datosClienteSnap.email || "").toString().trim();
+
         const ventaData = {
             clienteId: clienteId,
-            nombreCliente: document.querySelector("h3").innerText.replace("Venta para: ", ""), 
+            nombreCliente: nombreClienteVenta, 
             productosDetalle: productosSeleccionados.map(p => ({ id: p.id, nombre: p.nombre, precio: p.precio, costo: p.costo || 0, cantidad: Number(p.cantidad || 1) })),
             detalle: productosSeleccionados.map(p => `${p.cantidad || 1}x ${p.nombre} ($${p.precio})`).join(", "),
             subtotal: subtotal,
@@ -349,23 +353,35 @@ async function confirmarVentaMasiva(clienteId) {
             estado: estado
         };
 
-        // GUARDAR EN AMBOS LADOS: ventas_globales Y clientes/{id}/compras
-        batch.set(refCompraGlobal, ventaData);
-        batch.set(refCompraCliente, ventaData);
-
-        if (estado === "fiado") {
-            const saldoRestante = totalVenta - montoEntregaInicial;
-            console.log("[venta] saldoRestante:", saldoRestante);
-            batch.update(clienteRef, { 
-                saldoPendiente: firebase.firestore.FieldValue.increment(saldoRestante) 
-            });
-        }
-
-        productosSeleccionados.forEach(sel => {
-            const refProd = db.collection('productos').doc(sel.id);
-            console.log("[venta] disminuir stock producto:", sel.id);
-            batch.update(refProd, { stock: firebase.firestore.FieldValue.increment(-1) });
-        });
+        const saldoRestanteVentaIni = estado === "fiado" ? Math.max(0, totalVenta - montoEntregaInicial) : 0;
+        const itemsPedidoManual = productosSeleccionados.map((p) => ({
+            id: p.id,
+            nombre: p.nombre || "Producto",
+            precioBase: Number(p.precio || 0),
+            precio: Number(p.precio || 0),
+            costo: Number(p.costo || 0),
+            cantidad: Number(p.cantidad || 1),
+            subtotal: Number(p.precio || 0) * Number(p.cantidad || 1),
+        }));
+        const pedidoManualRef = db.collection("pedidos").doc(refCompraGlobal.id);
+        const pedidoManualData = {
+            ventaManual: true,
+            clienteId,
+            clienteEmail: emailClienteVenta,
+            clienteNombre: nombreClienteVenta,
+            uid: (datosClienteSnap.uid || "").toString(),
+            estado: estado === "fiado" ? "fiado" : "pagado",
+            medioPago: "venta_manual",
+            items: itemsPedidoManual,
+            total: totalVenta,
+            descuentoAplicado: descuento,
+            entregaParcial: montoEntregaInicial,
+            historialPagos: historialInicial,
+            saldoPendiente: saldoRestanteVentaIni,
+            saldoRestanteVenta: saldoRestanteVentaIni,
+            creadoAt: firebase.firestore.FieldValue.serverTimestamp(),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        };
 
         console.log("[venta] guardando venta en cliente y globales...");
         
@@ -373,6 +389,7 @@ async function confirmarVentaMasiva(clienteId) {
         try {
             const clienteBatch = db.batch();
             clienteBatch.set(refCompraCliente, ventaData);
+            clienteBatch.set(pedidoManualRef, pedidoManualData);
             
             if (estado === "fiado") {
                 const saldoRestante = totalVenta - montoEntregaInicial;
@@ -424,9 +441,14 @@ async function verHistorial(clienteId) {
         
         const telefonoCliente = datosCliente.whatsapp || datosCliente.telefono || "";
 
-        // Cargar SOLO de clientes/{id}/compras (más confiable, sin índices)
-        const snapshotCompras = await db.collection('clientes').doc(clienteId)
-            .collection('compras').orderBy("fechaObjeto", "desc").limit(50).get();
+        let snapshotCompras;
+        try {
+            snapshotCompras = await db.collection('clientes').doc(clienteId)
+                .collection('compras').orderBy("fechaObjeto", "desc").limit(50).get();
+        } catch (_orderErr) {
+            snapshotCompras = await db.collection('clientes').doc(clienteId)
+                .collection('compras').limit(50).get();
+        }
 
         const historialCompleto = [];
         
@@ -436,6 +458,31 @@ async function verHistorial(clienteId) {
                 datos: doc.data(),
                 origen: 'compras'
             });
+        });
+
+        const pedidosSnapPorCliente = await db.collection("pedidos").where("clienteId", "==", clienteId).get();
+        const emailCli = (datosCliente.email || "").toString().trim();
+        const pedidosSnapPorEmail = emailCli
+            ? await db.collection("pedidos").where("clienteEmail", "==", emailCli).get()
+            : { docs: [] };
+        const vistosPedido = new Set();
+        [...pedidosSnapPorCliente.docs, ...pedidosSnapPorEmail.docs].forEach((d) => {
+            if (vistosPedido.has(d.id)) return;
+            vistosPedido.add(d.id);
+            const p = d.data();
+            if ((p.medioPago || "") === "mercado_pago" && (p.estado || "") === "pagado") {
+                historialCompleto.push({
+                    id: d.id,
+                    datos: p,
+                    origen: "pedido_mp_entrega",
+                });
+            }
+        });
+
+        historialCompleto.sort((a, b) => {
+            const ta = timestampHistorialSort(a);
+            const tb = timestampHistorialSort(b);
+            return tb - ta;
         });
         
         console.log("[historial] Compras del cliente cargadas:", snapshotCompras.size);
@@ -472,6 +519,38 @@ async function verHistorial(clienteId) {
         }
 
         historialCompleto.forEach(registro => {
+            if (registro.origen === "pedido_mp_entrega") {
+                const p = registro.datos;
+                const codigo = (p.pedidoCodigo || p.codigoPedido || registro.id || "").toString();
+                const fechaTxt = p.mpPaymentApprovedAt
+                    ? new Date(p.mpPaymentApprovedAt).toLocaleString("es-AR")
+                    : (p.creadoAt?.toDate ? p.creadoAt.toDate().toLocaleString("es-AR") : "");
+                const itemsTxt = Array.isArray(p.items)
+                    ? p.items.map((it) => `${it.cantidad || 1}x ${it.nombre || ""}`).join(", ")
+                    : "";
+                historialHTML += `
+                <tr style="border-bottom:1px solid #dcdde1; background: #e8f4fd;">
+                    <td style="padding:12px; vertical-align:top;">
+                        <div style="font-size:11px; color:#7f8c8d; margin-bottom:4px;">${fechaTxt}</div>
+                        <div style="font-weight:bold; color:#2c3e50;">Pedido tienda #${codigo}</div>
+                        <div style="font-size:12px; color:#34495e; margin-top:4px;">${itemsTxt}</div>
+                    </td>
+                    <td style="padding:12px; vertical-align:top;">
+                        <span style="font-size:12px; color:#198754;">💳 Mercado Pago — pago acreditado</span>
+                    </td>
+                    <td style="padding:12px; font-weight:bold; font-size:16px; color:#2980b9; vertical-align:top;">
+                        $${Number(p.total || 0).toLocaleString()}
+                        <div style="font-size:10px; font-weight:normal; color:#856404;">PENDIENTE ENTREGA</div>
+                    </td>
+                    <td style="padding:12px; text-align:center; vertical-align:middle;">
+                        <span style="background:#fff3cd; color:#856404; padding:8px 10px; border-radius:6px; font-size:11px; font-weight:bold;">
+                            Esperando confirmación de entrega
+                        </span>
+                    </td>
+                </tr>`;
+                return;
+            }
+
             const c = registro.datos;
             const docId = registro.id;
             const sourceId = `${registro.origen}-${docId}`;
@@ -660,6 +739,17 @@ async function cobrarDeuda(clienteId, compraId) {
             }
         }
 
+        const pedidoRef = db.collection("pedidos").doc(docId);
+        const pedidoSnap = await pedidoRef.get();
+        if (pedidoSnap.exists) {
+            const saldoPendSync = Math.max(0, nuevoSaldoRestante);
+            batch.update(pedidoRef, {
+                ...updateData,
+                saldoPendiente: saldoPendSync,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            });
+        }
+
         await batch.commit();
         
         alert(`✅ Cobro de $${montoEntrega} registrado. Saldo restante: $${nuevoSaldoRestante}`);
@@ -761,11 +851,15 @@ async function generarReporteExacto() {
                 if (d.estado === "pagado") {
                     ventasFinalizadasMonto += Number(d.total || 0);
                     
-                    // Priorizamos costoTotal, sino sumamos productos
-                    if (d.costoTotal !== undefined) {
+                    // Priorizamos costoTotal, sino sumamos costo unitario × cantidad por línea
+                    if (d.costoTotal !== undefined && d.costoTotal !== null) {
                         costoMercaderiaTotal += Number(d.costoTotal);
-                    } else if (d.productosDetalle) {
-                        d.productosDetalle.forEach(p => costoMercaderiaTotal += Number(p.costo || 0));
+                    } else if (d.productosDetalle && Array.isArray(d.productosDetalle)) {
+                        d.productosDetalle.forEach((p) => {
+                            const cu = Number(p.costo || 0);
+                            const q = Math.max(1, Number(p.cantidad || 1));
+                            costoMercaderiaTotal += cu * q;
+                        });
                     }
                 }
             }
@@ -1262,6 +1356,20 @@ function timestampPedidoParaOrden(pedido) {
     return 0;
 }
 
+function timestampHistorialSort(reg) {
+    if (reg.origen === "pedido_mp_entrega") {
+        const p = reg.datos || {};
+        if (typeof p.mpPaymentApprovedAt === "number") return p.mpPaymentApprovedAt;
+        return timestampPedidoParaOrden(p);
+    }
+    const c = reg.datos || {};
+    const fo = c.fechaObjeto;
+    if (fo?.toMillis) return fo.toMillis();
+    if (fo?.toDate) return fo.toDate().getTime();
+    if (typeof c.timestamp === "number") return c.timestamp;
+    return 0;
+}
+
 async function cargarPedidosPendientes() {
     try {
         let snapFiado = { docs: [] };
@@ -1281,14 +1389,42 @@ async function cargarPedidosPendientes() {
                 .where("medioPago", "==", "mercado_pago")
                 .get();
         } catch (e2) {
-            console.warn("[pedidos admin] consulta MP pagados:", e2);
+            console.warn("[pedidos admin] consulta MP pagados sin índice compuesto, usando fallback:", e2);
+            try {
+                const todosPagados = await db.collection("pedidos").where("estado", "==", "pagado").get();
+                snapMpPagado = {
+                    docs: todosPagados.docs.filter((d) => (d.data().medioPago || "") === "mercado_pago"),
+                };
+            } catch (e3) {
+                console.warn("[pedidos admin] fallback MP:", e3);
+            }
+        }
+
+        let snapMpPendiente = { docs: [] };
+        try {
+            snapMpPendiente = await db
+                .collection("pedidos")
+                .where("estado", "==", "pendiente")
+                .where("medioPago", "==", "mercado_pago")
+                .get();
+        } catch (e4) {
+            console.warn("[pedidos admin] MP pendiente (índice o consulta):", e4);
+            try {
+                const todosPen = await db.collection("pedidos").where("estado", "==", "pendiente").get();
+                snapMpPendiente = {
+                    docs: todosPen.docs.filter((d) => (d.data().medioPago || "") === "mercado_pago"),
+                };
+            } catch (e5) {
+                console.warn("[pedidos admin] MP pendiente fallback:", e5);
+            }
         }
 
         const contenedor = document.getElementById("contenedor-pedidos-admin");
         if (!contenedor) return;
 
         const porId = new Map();
-        [...snapFiado.docs, ...snapMpPagado.docs].forEach((d) => {
+        [...snapFiado.docs, ...snapMpPagado.docs, ...snapMpPendiente.docs].forEach((d) => {
+            if (d.data().ventaManual) return;
             porId.set(d.id, d);
         });
         const docsOrdenados = Array.from(porId.values()).sort((a, b) => {
@@ -1308,17 +1444,21 @@ async function cargarPedidosPendientes() {
             const pedidoCodigoVisible = (pedido.pedidoCodigo || pedido.codigoPedido || pedidoId || "").toString();
             const fecha = pedido.creadoAt?.toDate ? pedido.creadoAt.toDate().toLocaleDateString() : "Sin fecha";
             const esMpPagado = pedido.estado === "pagado" && pedido.medioPago === "mercado_pago";
-            const bordeColor = esMpPagado ? "#198754" : "#ffc107";
+            const esMpPendienteSync =
+                pedido.estado === "pendiente" && (pedido.medioPago || "") === "mercado_pago";
+            const bordeColor = esMpPagado ? "#198754" : esMpPendienteSync ? "#fd7e14" : "#ffc107";
             const etiquetaEstado = esMpPagado
                 ? `<p style="margin: 5px 0; font-size: 13px; color: #198754; font-weight: bold;">💳 PAGADO (Mercado Pago)</p>`
-                : `<p style="margin: 5px 0; font-size: 13px; color: #ffc107; font-weight: bold;">⏳ FIADO</p>`;
+                : esMpPendienteSync
+                  ? `<p style="margin: 5px 0; font-size: 13px; color: #c65306; font-weight: bold;">⚠️ PENDIENTE — MP (sincronizar / entregar)</p>`
+                  : `<p style="margin: 5px 0; font-size: 13px; color: #ffc107; font-weight: bold;">⏳ FIADO</p>`;
 
-            const bloqueAcciones = esMpPagado
+            const bloqueAcciones = esMpPagado || esMpPendienteSync
                 ? `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                         <button onclick="confirmarEntregaMercadoPago('${pedidoId}')" 
                                 style="background: #0d6efd; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; grid-column: 1 / -1;">
-                            📦 CONFIRMAR ENTREGA
+                            📦 ${esMpPendienteSync ? "SINCRONIZAR PAGO + CONFIRMAR ENTREGA" : "CONFIRMAR ENTREGA"}
                         </button>
                         <button onclick="rechazarPedidoAdmin('${pedidoId}')" 
                                 style="background: #dc3545; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; grid-column: 1 / -1;">
@@ -1399,17 +1539,50 @@ async function confirmarPedidoAdmin(pedidoId, nuevoEstado = 'pagado') {
         if (!pedidoSnap.exists) return alert('Pedido no encontrado');
 
         const pedido = pedidoSnap.data();
+        if (pedido.ventaManual) {
+            return alert(
+                "Este registro es una venta manual ya cargada en el cliente. Los cobros y el historial se gestionan desde el panel de clientes."
+            );
+        }
         const clienteRef = await asegurarClientePorPedido(pedido);
+        const itemsOrigen = Array.isArray(pedido.items) ? pedido.items : [];
+        const itemsConCosto = [];
+        for (const item of itemsOrigen) {
+            let costo = Number(item.costo || 0);
+            if (!costo && item.id) {
+                try {
+                    const snapP = await db.collection("productos").doc(String(item.id)).get();
+                    if (snapP.exists) costo = Number(snapP.data().costo || 0);
+                } catch (_e) {
+                    /* ignorar */
+                }
+            }
+            itemsConCosto.push({ ...item, costo });
+        }
+
         const ventaData = {
             clienteId: pedido.clienteId || clienteRef.id || '',
             nombreCliente: pedido.clienteNombre || pedido.clienteEmail || 'Cliente',
             clienteEmail: pedido.clienteEmail || '',
-            productosDetalle: pedido.items.map(item => ({ id: item.id, nombre: item.nombre, precio: item.precio, costo: item.costo || 0, cantidad: item.cantidad || 1 })),
-            detalle: pedido.items.map(item => `${item.cantidad || 1}x ${item.nombre} ($${item.precio})`).join(', '),
-            subtotal: pedido.total || pedido.items.reduce((sum, item) => sum + (item.precio * (item.cantidad || 1)), 0),
+            productosDetalle: itemsConCosto.map((item) => ({
+                id: item.id,
+                nombre: item.nombre,
+                precio: item.precio,
+                costo: item.costo || 0,
+                cantidad: item.cantidad || 1,
+            })),
+            detalle: itemsConCosto.map((item) => `${item.cantidad || 1}x ${item.nombre} ($${item.precio})`).join(", "),
+            subtotal:
+                pedido.total ||
+                itemsConCosto.reduce((sum, item) => sum + Number(item.precio || 0) * Number(item.cantidad || 1), 0),
             descuentoAplicado: pedido.descuentoAplicado || 0,
-            total: pedido.total || pedido.items.reduce((sum, item) => sum + (item.precio * (item.cantidad || 1)), 0),
-            costoTotal: pedido.items.reduce((sum, item) => sum + ((item.costo || 0) * (item.cantidad || 1)), 0),
+            total:
+                pedido.total ||
+                itemsConCosto.reduce((sum, item) => sum + Number(item.precio || 0) * Number(item.cantidad || 1), 0),
+            costoTotal: itemsConCosto.reduce(
+                (sum, item) => sum + Number(item.costo || 0) * Number(item.cantidad || 1),
+                0
+            ),
             entregaParcial: nuevoEstado === 'pagado' ? (pedido.total || 0) : 0,
             historialPagos: nuevoEstado === 'pagado' ? [{ fecha: new Date().toLocaleString(), monto: pedido.total || 0, detalle: 'Pago total confirmado' }] : [],
             timestamp: Date.now(),
@@ -1426,9 +1599,15 @@ async function confirmarPedidoAdmin(pedidoId, nuevoEstado = 'pagado') {
         batch.set(compraGlobalRef, ventaData);
         batch.set(compraClienteRef, ventaData);
         
+        const saldoPedidoFiado = nuevoEstado === "fiado" ? Number(ventaData.total || 0) : 0;
+        const entregaPedidoIni = nuevoEstado === "pagado" ? Number(ventaData.total || 0) : 0;
         batch.update(pedidoRef, {
             estado: nuevoEstado === 'pagado' ? 'pagado' : 'fiado_confirmado',
             confirmado: true,
+            entregaParcial: entregaPedidoIni,
+            saldoRestanteVenta: saldoPedidoFiado,
+            saldoPendiente: saldoPedidoFiado,
+            historialPagos: ventaData.historialPagos || [],
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
 
@@ -1438,18 +1617,7 @@ async function confirmarPedidoAdmin(pedidoId, nuevoEstado = 'pagado') {
             });
         }
 
-        if (pedido.items && Array.isArray(pedido.items)) {
-            pedido.items.forEach(item => {
-                const cantidad = Number(item.cantidad || 1);
-                if (item.id) {
-                    const productoRef = db.collection('productos').doc(item.id);
-                    batch.update(productoRef, {
-                        stock: firebase.firestore.FieldValue.increment(-cantidad),
-                        ultimaActualizacion: Date.now()
-                    });
-                }
-            });
-        }
+        // El stock ya se descontó al crear el pedido desde el carrito (fiado / transferencia).
 
         try {
             await batch.commit();
@@ -1462,22 +1630,13 @@ async function confirmarPedidoAdmin(pedidoId, nuevoEstado = 'pagado') {
                 // Guardar AL MENOS en compras del cliente
                 fallback.set(compraClienteRef, ventaData);
 
-                if (pedido.items && Array.isArray(pedido.items)) {
-                    pedido.items.forEach(item => {
-                        const cantidad = Number(item.cantidad || 1);
-                        if (item.id) {
-                            const productoRef = db.collection('productos').doc(item.id);
-                            fallback.update(productoRef, {
-                                stock: firebase.firestore.FieldValue.increment(-cantidad),
-                                ultimaActualizacion: Date.now()
-                            });
-                        }
-                    });
-                }
-                
                 fallback.update(pedidoRef, {
                     estado: nuevoEstado === 'pagado' ? 'pagado' : 'fiado_confirmado',
                     confirmado: true,
+                    entregaParcial: entregaPedidoIni,
+                    saldoRestanteVenta: saldoPedidoFiado,
+                    saldoPendiente: saldoPedidoFiado,
+                    historialPagos: ventaData.historialPagos || [],
                     updatedAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
                 if (nuevoEstado === 'fiado') {
@@ -1496,118 +1655,6 @@ async function confirmarPedidoAdmin(pedidoId, nuevoEstado = 'pagado') {
     } catch (error) {
         console.error('Error en confirmación de pedido:', error);
         alert('❌ Error al confirmar el pedido: ' + (error.message || error));
-    }
-}
-
-/** Archiva venta en cliente + ventas_globales cuando MP ya cobró y solo falta registrar la entrega (sin tocar stock). */
-async function confirmarEntregaMercadoPago(pedidoId) {
-    if (!confirm("¿Confirmar que el pedido pagado por Mercado Pago ya fue entregado?\nSe registrará la venta para ganancias y quedará archivado.")) return;
-
-    try {
-        const pedidoRef = db.collection("pedidos").doc(pedidoId);
-        const pedidoSnap = await pedidoRef.get();
-        if (!pedidoSnap.exists) return alert("Pedido no encontrado");
-
-        const pedido = pedidoSnap.data();
-        if ((pedido.medioPago || "") !== "mercado_pago") {
-            return alert("Este flujo solo aplica a pedidos pagados por Mercado Pago.");
-        }
-        if ((pedido.estado || "") !== "pagado") {
-            return alert("El pedido debe estar en estado pagado (aprobado en Mercado Pago).");
-        }
-
-        const clienteRef = await asegurarClientePorPedido(pedido);
-        const tsPago = typeof pedido.mpPaymentApprovedAt === "number"
-            ? pedido.mpPaymentApprovedAt
-            : Date.now();
-        const fechaLegible = new Date(tsPago).toLocaleString();
-
-        const items = Array.isArray(pedido.items) ? pedido.items : [];
-        const productosDetalle = items.map((item) => ({
-            id: item.id,
-            nombre: item.nombre || "Producto",
-            precio: item.precio != null ? item.precio : item.precioBase,
-            costo: item.costo || 0,
-            cantidad: Number(item.cantidad || 1),
-        }));
-
-        const subtotal = items.reduce(
-            (sum, item) => sum + Number(item.precioBase || item.precio || 0) * Number(item.cantidad || 1),
-            0
-        );
-        const total = Number(pedido.total != null
-            ? pedido.total
-            : items.reduce((s, item) => s + Number(item.subtotal || 0), 0));
-
-        const ventaData = {
-            clienteId: clienteRef.id,
-            nombreCliente: pedido.clienteNombre || pedido.clienteEmail || "Cliente",
-            clienteEmail: pedido.clienteEmail || "",
-            productosDetalle,
-            detalle: items.map((item) => `${item.cantidad || 1}x ${item.nombre} ($${item.precio != null ? item.precio : item.precioBase})`).join(", "),
-            subtotal,
-            descuentoAplicado: pedido.descuentoAplicado || 0,
-            total,
-            costoTotal: items.reduce(
-                (acc, item) => acc + Number(item.costo || 0) * Number(item.cantidad || 1),
-                0
-            ),
-            entregaParcial: total,
-            historialPagos: [{
-                fecha: fechaLegible,
-                monto: total,
-                timestamp: tsPago,
-                detalle: "Mercado Pago — pago aprobado",
-            }],
-            timestamp: tsPago,
-            fecha: new Date(tsPago).toLocaleDateString(),
-            fechaObjeto: firebase.firestore.Timestamp.fromMillis(tsPago),
-            estado: "pagado",
-            origenMercadoPago: true,
-            mercadoPagoPaymentId: pedido.mpPaymentId || "",
-            pedidoOrigenId: pedidoId,
-        };
-
-        const batch = db.batch();
-        const compraGlobalRef = db.collection("ventas_globales").doc(pedidoId);
-        const compraClienteRef = clienteRef.collection("compras").doc(pedidoId);
-
-        batch.set(compraGlobalRef, ventaData);
-        batch.set(compraClienteRef, ventaData);
-
-        batch.update(pedidoRef, {
-            estado: "finalizado",
-            entregaConfirmadaAt: firebase.firestore.FieldValue.serverTimestamp(),
-            updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-        });
-
-        try {
-            await batch.commit();
-        } catch (error) {
-            if (error.code === "permission-denied") {
-                const fallback = db.batch();
-                fallback.set(compraClienteRef, ventaData);
-                fallback.update(pedidoRef, {
-                    estado: "finalizado",
-                    entregaConfirmadaAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-                });
-                await fallback.commit();
-                try {
-                    await compraGlobalRef.set(ventaData);
-                } catch (eG) {
-                    console.warn("[MP entrega] ventas_globales omitido:", eG.message);
-                }
-            } else {
-                throw error;
-            }
-        }
-
-        alert("✅ Entrega confirmada. Venta registrada y pedido archivado como finalizado.");
-        cargarPedidosPendientes();
-    } catch (error) {
-        console.error("confirmarEntregaMercadoPago:", error);
-        alert("❌ Error: " + (error.message || error));
     }
 }
 

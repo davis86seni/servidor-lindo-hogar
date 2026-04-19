@@ -245,6 +245,8 @@ async function asegurarClientePorUsuario(user) {
     return clienteRef;
 }
 
+window.asegurarClientePorUsuario = asegurarClientePorUsuario;
+
 async function generarCodigoPedidoCorto() {
     const ahora = new Date();
     const year2 = String(ahora.getFullYear()).slice(-2);
@@ -360,6 +362,10 @@ async function crearPreferenciaMercadoPago() {
         pedidoCodigo,
         items: itemsPedido,
         total,
+        entregaParcial: 0,
+        historialPagos: [],
+        saldoPendiente: total,
+        saldoRestanteVenta: total,
         creadoAt: firebase.firestore.FieldValue.serverTimestamp(),
         updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
@@ -422,15 +428,27 @@ async function confirmarCompraConLogin(medioForzado) {
         console.log("4. Preparando datos del pedido...");
         const medioPagoSeleccionado = medioForzado || obtenerMedioPagoSeleccionado();
         const multiplicadorPago = medioPagoSeleccionado === "mercado_pago" ? window.COMISION_MP : 1;
-        
-        const items = productosAgrupados.map(p => ({
-            id: p.id,
-            nombre: p.nombre,
-            precioBase: Number(p.precio || 0),
-            precio: Math.round(Number(p.precio || 0) * multiplicadorPago),
-            cantidad: p.cantidad,
-            subtotal: Math.round(Number(p.precio || 0) * multiplicadorPago) * p.cantidad
-        }));
+
+        const items = [];
+        for (const p of productosAgrupados) {
+            let costo = Number(p.costo || 0);
+            if (!costo && p.id) {
+                const snap = await db.collection("productos").doc(String(p.id)).get();
+                if (snap.exists) costo = Number(snap.data().costo || 0);
+            }
+            const precioBase = Number(p.precio || 0);
+            const cantidad = Number(p.cantidad) || 1;
+            const precioUnit = Math.round(precioBase * multiplicadorPago);
+            items.push({
+                id: p.id,
+                nombre: p.nombre,
+                precioBase,
+                precio: precioUnit,
+                costo,
+                cantidad,
+                subtotal: precioUnit * cantidad,
+            });
+        }
 
         const total = items.reduce((sum, item) => sum + item.subtotal, 0);
         console.log("5. Total:", total);
@@ -452,6 +470,10 @@ async function confirmarCompraConLogin(medioForzado) {
             pedidoCodigo,
             items: items,
             total: total,
+            entregaParcial: 0,
+            historialPagos: [],
+            saldoPendiente: total,
+            saldoRestanteVenta: total,
             creadoAt: firebase.firestore.FieldValue.serverTimestamp(),
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
@@ -519,3 +541,94 @@ async function finalizarCompra(medio) {
     }
     await confirmarCompraConLogin("transferencia");
 }
+
+/**
+ * Paga el saldo de una compra fiado desde el perfil del cliente (external_reference FIADO|...).
+ */
+async function crearPreferenciaPagoFiado(compraDocId) {
+    if (window.__mpConfigReady) {
+        await window.__mpConfigReady;
+    }
+
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        alert("Debés iniciar sesión para pagar.");
+        return;
+    }
+
+    const clienteRef = await asegurarClientePorUsuario(user);
+    const compraRef = clienteRef.collection("compras").doc(compraDocId);
+    const compraSnap = await compraRef.get();
+    if (!compraSnap.exists) {
+        alert("No se encontró la compra.");
+        return;
+    }
+
+    const c = compraSnap.data();
+    const estado = (c.estado || "").toString();
+    if (estado !== "fiado" && estado !== "fiado_confirmado") {
+        alert("Esta compra no tiene saldo pendiente en fiado.");
+        return;
+    }
+
+    const saldoBase =
+        c.saldoRestanteVenta !== undefined && c.saldoRestanteVenta !== null
+            ? Number(c.saldoRestanteVenta)
+            : Number(c.total || 0) - Number(c.entregaParcial || 0);
+
+    if (saldoBase <= 0) {
+        alert("No hay saldo pendiente en esta venta.");
+        return;
+    }
+
+    const mult = typeof window.COMISION_MP === "number" ? window.COMISION_MP : 1.12;
+    const unitPrice = Math.round(saldoBase * mult);
+
+    const host = typeof window !== "undefined" && window.location ? window.location.hostname : "";
+    const esLocalHost = host === "localhost" || host === "127.0.0.1";
+    const defaultMpOrigin = esLocalHost ? "http://localhost:3456" : "https://servidor-lindo-hogar.onrender.com";
+    const originFallback =
+        typeof window.MP_SERVER_ORIGIN === "string" && window.MP_SERVER_ORIGIN.trim()
+            ? window.MP_SERVER_ORIGIN.trim().replace(/\/$/, "")
+            : defaultMpOrigin;
+    const apiUrl =
+        typeof window.MP_PREFERENCE_API_URL === "string" && window.MP_PREFERENCE_API_URL.trim()
+            ? window.MP_PREFERENCE_API_URL.trim()
+            : `${originFallback}/api/crear-preferencia`;
+
+    const external_reference = `FIADO|${clienteRef.id}|${compraDocId}`;
+
+    try {
+        const res = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                items: [
+                    {
+                        id: `fiado-${compraDocId}`,
+                        title: `Pago fiado — ${(c.detalle || "compra").toString().slice(0, 200)}`,
+                        quantity: 1,
+                        unit_price: unitPrice,
+                    },
+                ],
+                payerEmail: user.email || undefined,
+                external_reference,
+            }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+            throw new Error(data.error || "No se pudo crear la preferencia de pago.");
+        }
+        if (!data.init_point) {
+            throw new Error("Respuesta inválida del servidor de pagos.");
+        }
+
+        window.location.href = data.init_point;
+    } catch (e) {
+        console.error(e);
+        alert("❌ " + (e.message || "No se pudo iniciar el pago."));
+    }
+}
+
+window.crearPreferenciaPagoFiado = crearPreferenciaPagoFiado;
