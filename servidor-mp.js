@@ -21,6 +21,9 @@ const mpPublicOrigin = (
 const webhookPublicUrl = (process.env.MP_WEBHOOK_PUBLIC_URL || mpPublicOrigin).replace(/\/$/, "");
 
 let firebaseCredOk = false;
+let firestoreOk = false;
+let firestoreError = null;
+let firebaseProjectId = null;
 
 function parseServiceAccountJson(raw) {
     if (!raw || typeof raw !== "string") return null;
@@ -28,13 +31,22 @@ function parseServiceAccountJson(raw) {
     try {
         return JSON.parse(trimmed);
     } catch {
-        /* intentar si Render escapó comillas */
+        /* continuar */
     }
     try {
         return JSON.parse(trimmed.replace(/\\n/g, "\n"));
     } catch {
         return null;
     }
+}
+
+function normalizePrivateKey(key) {
+    if (!key) return key;
+    let k = key.trim();
+    if ((k.startsWith('"') && k.endsWith('"')) || (k.startsWith("'") && k.endsWith("'"))) {
+        k = k.slice(1, -1);
+    }
+    return k.replace(/\\n/g, "\n");
 }
 
 function credencialesDesdeVariables() {
@@ -46,16 +58,27 @@ function credencialesDesdeVariables() {
             type: "service_account",
             project_id: projectId,
             client_email: clientEmail,
-            private_key: privateKey.replace(/\\n/g, "\n"),
+            private_key: normalizePrivateKey(privateKey),
         };
     }
     return null;
 }
 
+async function verificarFirestore(db) {
+    try {
+        await db.collection("mundial_partidos").limit(1).get();
+        return { ok: true, error: null };
+    } catch (e) {
+        return { ok: false, error: e.message };
+    }
+}
+
 function initFirebaseAdmin() {
     if (admin.apps.length) return admin.app();
 
+    // En Render: preferir las 3 variables sueltas (más confiables que JSON multilínea)
     const intentos = [
+        () => credencialesDesdeVariables(),
         () => parseServiceAccountJson(process.env.FIREBASE_SERVICE_ACCOUNT_JSON),
         () => {
             const pathOrJson = process.env.GOOGLE_APPLICATION_CREDENTIALS;
@@ -64,16 +87,18 @@ function initFirebaseAdmin() {
             }
             return null;
         },
-        () => credencialesDesdeVariables(),
     ];
 
     for (const obtener of intentos) {
         const serviceAccount = obtener();
         if (serviceAccount?.private_key && serviceAccount?.client_email) {
+            serviceAccount.private_key = normalizePrivateKey(serviceAccount.private_key);
             firebaseCredOk = true;
+            firebaseProjectId = serviceAccount.project_id;
             console.log("[Firebase] Credenciales OK — project:", serviceAccount.project_id);
             return admin.initializeApp({
                 credential: admin.credential.cert(serviceAccount),
+                projectId: serviceAccount.project_id,
             });
         }
     }
@@ -97,9 +122,11 @@ function initFirebaseAdmin() {
     if (jsonPath && fs.existsSync(jsonPath)) {
         const serviceAccount = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
         firebaseCredOk = true;
+        firebaseProjectId = serviceAccount.project_id;
         console.log("[Firebase] Credenciales OK (archivo) — project:", serviceAccount.project_id);
         return admin.initializeApp({
             credential: admin.credential.cert(serviceAccount),
+            projectId: serviceAccount.project_id,
         });
     }
 
@@ -112,6 +139,9 @@ function initFirebaseAdmin() {
 function estadoFirebase() {
     return {
         firebaseOk: firebaseCredOk,
+        firestoreOk,
+        firestoreError,
+        firebaseProjectId,
         tieneApiFootball: Boolean(process.env.API_FOOTBALL_KEY),
         tieneJson: Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON),
         tieneVarsSeparadas: Boolean(
@@ -443,6 +473,17 @@ app.post("/api/mundial/sync", async (req, res) => {
 });
 
 mundialSync.iniciarSyncAutomatico(firestoreDb);
+
+(async () => {
+    const check = await verificarFirestore(firestoreDb);
+    firestoreOk = check.ok;
+    firestoreError = check.error;
+    if (check.ok) {
+        console.log("[Firebase] Firestore conectado OK");
+    } else {
+        console.error("[Firebase] Firestore falló:", check.error);
+    }
+})();
 
 app.listen(PORT, () => {
     console.log(`Mercado Pago: servidor en http://localhost:${PORT} (SITE_URL=${siteUrl})`);
