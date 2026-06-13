@@ -20,18 +20,61 @@ const mpPublicOrigin = (
 ).replace(/\/$/, "");
 const webhookPublicUrl = (process.env.MP_WEBHOOK_PUBLIC_URL || mpPublicOrigin).replace(/\/$/, "");
 
+let firebaseCredOk = false;
+
+function parseServiceAccountJson(raw) {
+    if (!raw || typeof raw !== "string") return null;
+    const trimmed = raw.trim();
+    try {
+        return JSON.parse(trimmed);
+    } catch {
+        /* intentar si Render escapó comillas */
+    }
+    try {
+        return JSON.parse(trimmed.replace(/\\n/g, "\n"));
+    } catch {
+        return null;
+    }
+}
+
+function credencialesDesdeVariables() {
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY;
+    if (projectId && clientEmail && privateKey) {
+        return {
+            type: "service_account",
+            project_id: projectId,
+            client_email: clientEmail,
+            private_key: privateKey.replace(/\\n/g, "\n"),
+        };
+    }
+    return null;
+}
+
 function initFirebaseAdmin() {
     if (admin.apps.length) return admin.app();
 
-    const jsonFromEnv = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
-    if (jsonFromEnv) {
-        try {
-            const serviceAccount = JSON.parse(jsonFromEnv);
+    const intentos = [
+        () => parseServiceAccountJson(process.env.FIREBASE_SERVICE_ACCOUNT_JSON),
+        () => {
+            const pathOrJson = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+            if (pathOrJson?.trim().startsWith("{")) {
+                return parseServiceAccountJson(pathOrJson);
+            }
+            return null;
+        },
+        () => credencialesDesdeVariables(),
+    ];
+
+    for (const obtener of intentos) {
+        const serviceAccount = obtener();
+        if (serviceAccount?.private_key && serviceAccount?.client_email) {
+            firebaseCredOk = true;
+            console.log("[Firebase] Credenciales OK — project:", serviceAccount.project_id);
             return admin.initializeApp({
                 credential: admin.credential.cert(serviceAccount),
             });
-        } catch (e) {
-            console.error("[Firebase] FIREBASE_SERVICE_ACCOUNT_JSON inválido:", e.message);
         }
     }
 
@@ -39,25 +82,44 @@ function initFirebaseAdmin() {
         process.env.GOOGLE_APPLICATION_CREDENTIALS ||
         process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
     let jsonPath = explicitPath;
-    if (!jsonPath) {
+    if (jsonPath && !jsonPath.trim().startsWith("{")) {
+        /* es ruta de archivo */
+    } else if (!jsonPath) {
         const candidates = [
             path.join(__dirname, "tu-clave-privada.json"),
             path.join(__dirname, "tu-clave-privada.json.json"),
         ];
         jsonPath = candidates.find((p) => fs.existsSync(p));
+    } else {
+        jsonPath = null;
     }
 
     if (jsonPath && fs.existsSync(jsonPath)) {
         const serviceAccount = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+        firebaseCredOk = true;
+        console.log("[Firebase] Credenciales OK (archivo) — project:", serviceAccount.project_id);
         return admin.initializeApp({
             credential: admin.credential.cert(serviceAccount),
         });
     }
 
     console.warn(
-        "[Firebase] No se encontró service account. Definí FIREBASE_SERVICE_ACCOUNT_JSON (Render) o GOOGLE_APPLICATION_CREDENTIALS (local)."
+        "[Firebase] SIN credenciales. En Render agregá FIREBASE_PROJECT_ID + FIREBASE_CLIENT_EMAIL + FIREBASE_PRIVATE_KEY"
     );
     return admin.initializeApp();
+}
+
+function estadoFirebase() {
+    return {
+        firebaseOk: firebaseCredOk,
+        tieneApiFootball: Boolean(process.env.API_FOOTBALL_KEY),
+        tieneJson: Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON),
+        tieneVarsSeparadas: Boolean(
+            process.env.FIREBASE_PROJECT_ID &&
+                process.env.FIREBASE_CLIENT_EMAIL &&
+                process.env.FIREBASE_PRIVATE_KEY
+        ),
+    };
 }
 
 initFirebaseAdmin();
@@ -358,7 +420,10 @@ const mundialSync = require("./lib/mundial-sync.cjs");
 const firestoreDb = admin.firestore();
 
 app.get("/api/mundial/sync-estado", (req, res) => {
-    res.json(mundialSync.estadoSync());
+    res.json({
+        ...mundialSync.estadoSync(),
+        ...estadoFirebase(),
+    });
 });
 
 app.post("/api/mundial/sync", async (req, res) => {
