@@ -341,6 +341,32 @@ async function handleWebhook(req, res) {
 app.post("/webhook", handleWebhook);
 app.get("/webhook", handleWebhook);
 
+/** ── Fixture Mundial: sync de resultados ── */
+const mundialSync = require("./lib/mundial-sync.cjs");
+const firestoreDb = admin.firestore();
+
+app.get("/api/mundial/sync-estado", (req, res) => {
+    res.json(mundialSync.estadoSync());
+});
+
+app.post("/api/mundial/sync", async (req, res) => {
+    const apiKey = process.env.API_FOOTBALL_KEY;
+    if (!apiKey) {
+        return res.status(503).json({ error: "Falta API_FOOTBALL_KEY en .env" });
+    }
+    try {
+        const fixture = mundialSync.cargarFixture();
+        await mundialSync.seedFirestore(firestoreDb, fixture);
+        const result = await mundialSync.sincronizarResultados(firestoreDb, apiKey);
+        res.json(result);
+    } catch (e) {
+        console.error("[mundial-sync manual]", e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+mundialSync.iniciarSyncAutomatico(firestoreDb);
+
 app.listen(PORT, () => {
     console.log(`Mercado Pago: servidor en http://localhost:${PORT} (SITE_URL=${siteUrl})`);
     console.log(`Webhook local: ${webhookPublicUrl}/webhook — en producción configurá MP_WEBHOOK_PUBLIC_URL (HTTPS).`);
