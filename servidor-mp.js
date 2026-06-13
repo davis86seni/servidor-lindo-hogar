@@ -23,6 +23,18 @@ const webhookPublicUrl = (process.env.MP_WEBHOOK_PUBLIC_URL || mpPublicOrigin).r
 function initFirebaseAdmin() {
     if (admin.apps.length) return admin.app();
 
+    const jsonFromEnv = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+    if (jsonFromEnv) {
+        try {
+            const serviceAccount = JSON.parse(jsonFromEnv);
+            return admin.initializeApp({
+                credential: admin.credential.cert(serviceAccount),
+            });
+        } catch (e) {
+            console.error("[Firebase] FIREBASE_SERVICE_ACCOUNT_JSON inválido:", e.message);
+        }
+    }
+
     const explicitPath =
         process.env.GOOGLE_APPLICATION_CREDENTIALS ||
         process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
@@ -43,7 +55,7 @@ function initFirebaseAdmin() {
     }
 
     console.warn(
-        "[Firebase] No se encontró JSON de service account. Definí GOOGLE_APPLICATION_CREDENTIALS o FIREBASE_SERVICE_ACCOUNT_PATH."
+        "[Firebase] No se encontró service account. Definí FIREBASE_SERVICE_ACCOUNT_JSON (Render) o GOOGLE_APPLICATION_CREDENTIALS (local)."
     );
     return admin.initializeApp();
 }
